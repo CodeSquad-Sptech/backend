@@ -17,6 +17,8 @@ public class Main {
         Integer opt;
         Boolean ligado = true;
         System.out.println("\nSeja bem vindo ao Evolua!\n");
+        todosLogs.add(new Logs((todosLogs.size()), LocalDateTime.now(),
+                "INFO", "Sistema foi iniciado"));
         while (ligado){
             do {
                 System.out.printf("""
@@ -31,6 +33,8 @@ public class Main {
 
                 if (opt == null || opt < 1 || opt > 3) {
                     System.out.println("Opção inválida\n");
+                    todosLogs.add(new Logs((todosLogs.size()), LocalDateTime.now(),
+                            "ERRO", "Erro ao receber opção desejada pelo usuário"));
                 }
             } while (opt == null || opt < 1 || opt > 3);
 
