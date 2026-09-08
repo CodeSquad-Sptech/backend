@@ -1,4 +1,4 @@
-package br.com.evolua;
+package br.com.code_squad;
 
 import br.com.evolua.classes.info.Logs;
 import br.com.evolua.classes.usuario.Usuario;
@@ -21,12 +21,14 @@ public class Main {
                 "INFO", "Sistema foi iniciado"));
         while (ligado){
             do {
+
                 System.out.printf("""
                         Oque deseja fazer?
                         
                         >Cadastrar Usuário: Digite 1
                         >Consultar Logs: Digite 2
-                        >Desligar sistema: Digite 3
+                        >Ver todos os usuários: Digite 3
+                        >Desligar sistema: Digite 4
                         """);
                 opt = scanner.nextInt();
                 scanner.nextLine();
@@ -42,6 +44,7 @@ public class Main {
                case 1 -> cadastrarUser(scanner, usuarios, todosLogs);
                case 2 -> consultarLogs(todosLogs);
                case 3 -> ligado = false;
+               case 4 -> ligado = false;
             }
 
         }
@@ -66,6 +69,20 @@ public class Main {
 
     }
 
+
+
+    static void consultarUsers(List<Logs> usuarios){
+        System.out.println("\n=================================================================================\n");
+        if(usuarios.size() < 1){
+            System.out.println("Sem registro de usuários no sistema");
+        } else {
+            for (int i = 0; i < usuarios.size(); i++) {
+                System.out.println(usuarios.get(i));
+            }
+        }
+        System.out.println("\n=================================================================================\n");
+
+    }
 
     static void cadastrarUser(Scanner scanner, List<Usuario> usuarios, List<Logs> todosLogs ){
 

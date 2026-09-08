@@ -3,7 +3,8 @@ package br.com.evolua.classes.info;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Logs {
+public class
+Logs {
     Integer logId;
     LocalDateTime time;
     String type;
