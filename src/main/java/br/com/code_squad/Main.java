@@ -33,17 +33,17 @@ public class Main {
                 opt = scanner.nextInt();
                 scanner.nextLine();
 
-                if (opt == null || opt < 1 || opt > 3) {
+                if (opt == null || opt < 1 || opt > 4) {
                     System.out.println("Opção inválida\n");
                     todosLogs.add(new Logs((todosLogs.size()), LocalDateTime.now(),
                             "ERRO", "Erro ao receber opção desejada pelo usuário"));
                 }
-            } while (opt == null || opt < 1 || opt > 3);
+            } while (opt == null || opt < 1 || opt > 4);
 
             switch (opt){
                case 1 -> cadastrarUser(scanner, usuarios, todosLogs);
                case 2 -> consultarLogs(todosLogs);
-               case 3 -> ligado = false;
+               case 3 -> consultarUsers(usuarios);
                case 4 -> ligado = false;
             }
 
@@ -71,7 +71,7 @@ public class Main {
 
 
 
-    static void consultarUsers(List<Logs> usuarios){
+    static void consultarUsers(List<Usuario> usuarios){
         System.out.println("\n=================================================================================\n");
         if(usuarios.size() < 1){
             System.out.println("Sem registro de usuários no sistema");
@@ -125,7 +125,7 @@ public class Main {
             } while (senha == null || senha.length() < 8);
 
             idUserAtual = usuarios.size();
-            usuarios.add(new Usuario(idUserAtual, nome, senha));
+            usuarios.add(new Usuario(idUserAtual, nome, idade, senha));
 
             todosLogs.add(new Logs((todosLogs.size()), LocalDateTime.now(),
                     "INFO", "Usuário cadastrado"));
