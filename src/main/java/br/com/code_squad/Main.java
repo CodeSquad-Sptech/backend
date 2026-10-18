@@ -13,6 +13,12 @@ public class Main {
         ArrayList<Logs> todosLogs = new ArrayList<>();
         ArrayList<Usuario> usuarios = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
+        ConexaoBanco conexao = new ConexaoBanco();
+
+
+        Integer resultado = conexao.getJdbcTemplate().queryForObject("SELECT 1", Integer.class);
+        System.out.println("Conectou! Resultado: " + resultado);
+
 
         Integer opt;
         Boolean ligado = true;
@@ -131,6 +137,8 @@ public class Main {
                     "INFO", "Usuário cadastrado"));
 
             System.out.println("Usuário cadastrado com sucesso! \n");
+
+
 
     }
 
