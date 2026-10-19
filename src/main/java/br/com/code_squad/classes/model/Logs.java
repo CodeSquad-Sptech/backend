@@ -2,7 +2,7 @@ package br.com.code_squad.classes.model;
 
 import java.time.LocalDate;
 
-public class Log {
+public class Logs {
     private Integer idLogs;
     private String empresa;
     private String funcionario;
@@ -10,7 +10,7 @@ public class Log {
     private String mensagem;
     private LocalDate dataHora;
 
-    public Log(Integer idLogs, String empresa, String funcionario, String nivel, String mensagem, LocalDate dataHora) {
+    public Logs(Integer idLogs, String empresa, String funcionario, String nivel, String mensagem, LocalDate dataHora) {
         this.idLogs = idLogs;
         this.empresa = empresa;
         this.funcionario = funcionario;
