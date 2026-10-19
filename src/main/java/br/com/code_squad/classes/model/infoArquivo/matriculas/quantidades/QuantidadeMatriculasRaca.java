@@ -10,6 +10,17 @@ public class QuantidadeMatriculasRaca {
     private Integer naoDeclarada;
     private Integer fkInfoMatriculas;
 
+    public QuantidadeMatriculasRaca(Integer idQuantidadeMatriculasRaca, Integer branca, Integer preta, Integer parda, Integer amarela, Integer indigena, Integer naoDeclarada, Integer fkInfoMatriculas) {
+        this.idQuantidadeMatriculasRaca = idQuantidadeMatriculasRaca;
+        this.branca = branca;
+        this.preta = preta;
+        this.parda = parda;
+        this.amarela = amarela;
+        this.indigena = indigena;
+        this.naoDeclarada = naoDeclarada;
+        this.fkInfoMatriculas = fkInfoMatriculas;
+    }
+
     public Integer getIdQuantidadeMatriculasRaca() {
         return idQuantidadeMatriculasRaca;
     }

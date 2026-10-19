@@ -6,6 +6,13 @@ public class QuantidadeConcluintesTurno {
     private Integer noturno;
     private Integer fkInfoConcluintes;
 
+    public QuantidadeConcluintesTurno(Integer idQuantidadeConcluintesTurno, Integer diurno, Integer noturno, Integer fkInfoConcluintes) {
+        this.idQuantidadeConcluintesTurno = idQuantidadeConcluintesTurno;
+        this.diurno = diurno;
+        this.noturno = noturno;
+        this.fkInfoConcluintes = fkInfoConcluintes;
+    }
+
     public Integer getIdQuantidadeConcluintesTurno() {
         return idQuantidadeConcluintesTurno;
     }

@@ -6,6 +6,13 @@ public class QuantidadeMatriculasSexo {
     private Integer masculino;
     private Integer fkInfoMatriculas;
 
+    public QuantidadeMatriculasSexo(Integer idQuantidadeMatriculasSexo, Integer feminino, Integer masculino, Integer fkInfoMatriculas) {
+        this.idQuantidadeMatriculasSexo = idQuantidadeMatriculasSexo;
+        this.feminino = feminino;
+        this.masculino = masculino;
+        this.fkInfoMatriculas = fkInfoMatriculas;
+    }
+
     public Integer getIdQuantidadeMatriculasSexo() {
         return idQuantidadeMatriculasSexo;
     }

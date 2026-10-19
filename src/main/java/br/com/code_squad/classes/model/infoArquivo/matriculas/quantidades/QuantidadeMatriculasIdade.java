@@ -12,6 +12,19 @@ public class QuantidadeMatriculasIdade {
     private Integer matriculas60Mais;
     private Integer fkInfoMatriculas;
 
+    public QuantidadeMatriculasIdade(Integer idQuantidadeMatriculasIdade, Integer matriculas0a17, Integer matriculas18a24, Integer matriculas25a29, Integer matriculas30a34, Integer matriculas35a39, Integer matriculas40a49, Integer matriculas50a59, Integer matriculas60Mais, Integer fkInfoMatriculas) {
+        this.idQuantidadeMatriculasIdade = idQuantidadeMatriculasIdade;
+        this.matriculas0a17 = matriculas0a17;
+        this.matriculas18a24 = matriculas18a24;
+        this.matriculas25a29 = matriculas25a29;
+        this.matriculas30a34 = matriculas30a34;
+        this.matriculas35a39 = matriculas35a39;
+        this.matriculas40a49 = matriculas40a49;
+        this.matriculas50a59 = matriculas50a59;
+        this.matriculas60Mais = matriculas60Mais;
+        this.fkInfoMatriculas = fkInfoMatriculas;
+    }
+
     public Integer getIdQuantidadeMatriculasIdade() {
         return idQuantidadeMatriculasIdade;
     }

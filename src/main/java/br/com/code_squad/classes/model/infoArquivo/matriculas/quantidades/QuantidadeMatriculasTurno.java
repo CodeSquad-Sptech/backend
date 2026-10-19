@@ -6,6 +6,13 @@ public class QuantidadeMatriculasTurno {
     private Integer noturno;
     private Integer fkInfoMatriculas;
 
+    public QuantidadeMatriculasTurno(Integer idQuantidadeMatriculasTurno, Integer diurno, Integer noturno, Integer fkInfoMatriculas) {
+        this.idQuantidadeMatriculasTurno = idQuantidadeMatriculasTurno;
+        this.diurno = diurno;
+        this.noturno = noturno;
+        this.fkInfoMatriculas = fkInfoMatriculas;
+    }
+
     public Integer getIdQuantidadeMatriculasTurno() {
         return idQuantidadeMatriculasTurno;
     }

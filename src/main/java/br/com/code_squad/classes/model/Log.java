@@ -10,6 +10,15 @@ public class Log {
     private String mensagem;
     private LocalDate dataHora;
 
+    public Log(Integer idLogs, String empresa, String funcionario, String nivel, String mensagem, LocalDate dataHora) {
+        this.idLogs = idLogs;
+        this.empresa = empresa;
+        this.funcionario = funcionario;
+        this.nivel = nivel;
+        this.mensagem = mensagem;
+        this.dataHora = dataHora;
+    }
+
     public Integer getIdLogs() {
         return idLogs;
     }

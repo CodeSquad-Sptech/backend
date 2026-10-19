@@ -6,6 +6,13 @@ public class Importacao {
     private String dataImportacao;
     private Integer fkUsuario;
 
+    public Importacao(Integer idImportacao, String nomeArquivo, String dataImportacao, Integer fkUsuario) {
+        this.idImportacao = idImportacao;
+        this.nomeArquivo = nomeArquivo;
+        this.dataImportacao = dataImportacao;
+        this.fkUsuario = fkUsuario;
+    }
+
     public Integer getIdImportacao() {
         return idImportacao;
     }

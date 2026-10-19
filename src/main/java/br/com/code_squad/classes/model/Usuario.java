@@ -10,6 +10,17 @@ public class Usuario {
     private String imagem;
     private Integer fkInstituicao;
 
+    public Usuario(Integer idUsuario, String nome, String email, String senha, Integer administrador, Integer ativo, String imagem, Integer fkInstituicao) {
+        this.idUsuario = idUsuario;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.administrador = administrador;
+        this.ativo = ativo;
+        this.imagem = imagem;
+        this.fkInstituicao = fkInstituicao;
+    }
+
     public Integer getIdUsuario() {
         return idUsuario;
     }

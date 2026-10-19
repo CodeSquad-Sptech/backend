@@ -4,6 +4,11 @@ public class InfoMatriculas {
     private Integer idInfoMatriculas;
     private Integer fkInfoCurso;
 
+    public InfoMatriculas(Integer idInfoMatriculas, Integer fkInfoCurso) {
+        this.idInfoMatriculas = idInfoMatriculas;
+        this.fkInfoCurso = fkInfoCurso;
+    }
+
     public Integer getIdInfoMatriculas() {
         return idInfoMatriculas;
     }

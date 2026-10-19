@@ -10,6 +10,17 @@ public class QuantidadeConcluintesRaca {
     private Integer corNaoDeclarada;
     private Integer fkInfoConcluintes;
 
+    public QuantidadeConcluintesRaca(Integer idQuantidadeConcluintesRaca, Integer branca, Integer preta, Integer parda, Integer amarela, Integer indigena, Integer corNaoDeclarada, Integer fkInfoConcluintes) {
+        this.idQuantidadeConcluintesRaca = idQuantidadeConcluintesRaca;
+        this.branca = branca;
+        this.preta = preta;
+        this.parda = parda;
+        this.amarela = amarela;
+        this.indigena = indigena;
+        this.corNaoDeclarada = corNaoDeclarada;
+        this.fkInfoConcluintes = fkInfoConcluintes;
+    }
+
     public Integer getIdQuantidadeConcluintesRaca() {
 
         return idQuantidadeConcluintesRaca;

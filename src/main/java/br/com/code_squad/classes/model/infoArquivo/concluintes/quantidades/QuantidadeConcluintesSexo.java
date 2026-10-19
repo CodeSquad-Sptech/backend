@@ -6,6 +6,13 @@ public class QuantidadeConcluintesSexo {
     private Integer masculino;
     private Integer fkInfoConcluintes;
 
+    public QuantidadeConcluintesSexo(Integer idQuantidadeConcluintesSexo, Integer feminino, Integer masculino, Integer fkInfoConcluintes) {
+        this.idQuantidadeConcluintesSexo = idQuantidadeConcluintesSexo;
+        this.feminino = feminino;
+        this.masculino = masculino;
+        this.fkInfoConcluintes = fkInfoConcluintes;
+    }
+
     public Integer getIdQuantidadeConcluintesSexo() {
         return idQuantidadeConcluintesSexo;
     }

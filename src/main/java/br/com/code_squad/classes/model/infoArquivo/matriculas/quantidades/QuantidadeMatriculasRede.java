@@ -6,6 +6,13 @@ public class QuantidadeMatriculasRede {
     private Integer redePrivada;
     private Integer fkInfoMatriculas;
 
+    public QuantidadeMatriculasRede(Integer idQuantidadeMatriculasRede, Integer redePublica, Integer redePrivada, Integer fkInfoMatriculas) {
+        this.idQuantidadeMatriculasRede = idQuantidadeMatriculasRede;
+        this.redePublica = redePublica;
+        this.redePrivada = redePrivada;
+        this.fkInfoMatriculas = fkInfoMatriculas;
+    }
+
     public Integer getIdQuantidadeMatriculasRede() {
         return idQuantidadeMatriculasRede;
     }

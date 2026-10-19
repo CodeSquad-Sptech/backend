@@ -12,6 +12,19 @@ public class QuantidadeConcluintesIdade {
     private Integer concluintes60Mais;
     private Integer fkInfoConcluintes;
 
+    public QuantidadeConcluintesIdade(Integer idQuantidadeConcluintesIdade, Integer concluintes0a17, Integer concluintes18a24, Integer concluintes25a29, Integer concluintes30a34, Integer concluintes35a39, Integer concluintes40a49, Integer concluintes50a59, Integer concluintes60Mais, Integer fkInfoConcluintes) {
+        this.idQuantidadeConcluintesIdade = idQuantidadeConcluintesIdade;
+        this.concluintes0a17 = concluintes0a17;
+        this.concluintes18a24 = concluintes18a24;
+        this.concluintes25a29 = concluintes25a29;
+        this.concluintes30a34 = concluintes30a34;
+        this.concluintes35a39 = concluintes35a39;
+        this.concluintes40a49 = concluintes40a49;
+        this.concluintes50a59 = concluintes50a59;
+        this.concluintes60Mais = concluintes60Mais;
+        this.fkInfoConcluintes = fkInfoConcluintes;
+    }
+
     public Integer getIdQuantidadeConcluintesIdade() {
         return idQuantidadeConcluintesIdade;
     }

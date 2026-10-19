@@ -11,6 +11,16 @@ public class InfoCurso {
     private String tipoNivelAcademico;
     private Integer fkImportacao;
 
+    public InfoCurso(Integer idInfoCurso, LocalDate ano, String nomeCurso, String tipoGrauAcademico, String tipoModalidadeEnsino, String tipoNivelAcademico, Integer fkImportacao) {
+        this.idInfoCurso = idInfoCurso;
+        this.ano = ano;
+        this.nomeCurso = nomeCurso;
+        this.tipoGrauAcademico = tipoGrauAcademico;
+        this.tipoModalidadeEnsino = tipoModalidadeEnsino;
+        this.tipoNivelAcademico = tipoNivelAcademico;
+        this.fkImportacao = fkImportacao;
+    }
+
     public Integer getIdInfoCurso() {
         return idInfoCurso;
     }

@@ -7,6 +7,14 @@ public class QuantidadeConcluintesOutros {
     private Integer deficiencia;
     private Integer fkInfoConcluintes;
 
+    public QuantidadeConcluintesOutros(Integer idQuantidadeConcluintesOutros, Integer estrangeiro, Integer financiamento, Integer deficiencia, Integer fkInfoConcluintes) {
+        this.idQuantidadeConcluintesOutros = idQuantidadeConcluintesOutros;
+        this.estrangeiro = estrangeiro;
+        this.financiamento = financiamento;
+        this.deficiencia = deficiencia;
+        this.fkInfoConcluintes = fkInfoConcluintes;
+    }
+
     public Integer getIdQuantidadeConcluintesOutros() {
         return idQuantidadeConcluintesOutros;
     }

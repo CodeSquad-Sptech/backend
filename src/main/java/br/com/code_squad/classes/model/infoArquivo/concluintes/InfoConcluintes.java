@@ -4,6 +4,11 @@ public class InfoConcluintes {
     private Integer idInfoConcluintes;
     private Integer fkInfoCurso;
 
+    public InfoConcluintes(Integer idInfoConcluintes, Integer fkInfoCurso) {
+        this.idInfoConcluintes = idInfoConcluintes;
+        this.fkInfoCurso = fkInfoCurso;
+    }
+
     public Integer getIdInfoConcluintes() {
         return idInfoConcluintes;
     }

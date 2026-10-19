@@ -13,6 +13,18 @@ public class Instituicao {
     private LocalDate dataCadastro;
     private String imagem;
 
+    public Instituicao(Integer idInstituicao, String nome, String logo, String cnpj, String uf, String cidade, String codigo, LocalDate dataCadastro, String imagem) {
+        this.idInstituicao = idInstituicao;
+        this.nome = nome;
+        this.logo = logo;
+        this.cnpj = cnpj;
+        this.uf = uf;
+        this.cidade = cidade;
+        this.codigo = codigo;
+        this.dataCadastro = dataCadastro;
+        this.imagem = imagem;
+    }
+
     public Integer getIdInstituicao() {
         return idInstituicao;
     }

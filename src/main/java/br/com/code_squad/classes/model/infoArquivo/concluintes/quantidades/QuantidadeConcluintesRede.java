@@ -6,6 +6,13 @@ public class QuantidadeConcluintesRede {
     private Integer redePrivada;
     private Integer fkInfoConcluintes;
 
+    public QuantidadeConcluintesRede(Integer idQuantidadeConcluintesRede, Integer redePublica, Integer redePrivada, Integer fkInfoConcluintes) {
+        this.idQuantidadeConcluintesRede = idQuantidadeConcluintesRede;
+        this.redePublica = redePublica;
+        this.redePrivada = redePrivada;
+        this.fkInfoConcluintes = fkInfoConcluintes;
+    }
+
     public Integer getIdQuantidadeConcluintesRede() {
         return idQuantidadeConcluintesRede;
     }
