@@ -34,6 +34,16 @@ public class CursoImportadoDTO {
     private QuantidadeConcluintesTurno quantidadeConcluintesTurno;
     private QuantidadeConcluintesRede quantidadeConcluintesRede;
 
+//      CursoImportadoDTO cursoDTO = new CursoImportadoDTO();
+//
+//      cursoDTO.setInfoCurso(infoCurso);
+//
+//      cursoDTO.setQuantidadeMatriculasIdade(matriculasIdade);
+//      cursoDTO.setQuantidadeMatriculasRaca(matriculasRaca);
+//
+//      cursoDTO.setQuantidadeConcluintesIdade(concluintesIdade);
+//      cursoDTO.setQuantidadeConcluintesRaca(concluintesRaca);
+
     public InfoCurso getInfoCurso() {
         return infoCurso;
     }
