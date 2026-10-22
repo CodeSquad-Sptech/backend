@@ -7,6 +7,7 @@ public class QuantidadeMatriculasOutros {
     private Integer deficiencia;
     private Integer alunosApoioSocial;
     private Integer fkInfoMatriculas;
+    private Integer quantidadeAlunosSituacaoTrancada;
 
     public QuantidadeMatriculasOutros(Integer idQuantidadeMatriculasOutros, Integer estrangeiro, Integer financiamento, Integer deficiencia, Integer alunosApoioSocial, Integer fkInfoMatriculas) {
         this.idQuantidadeMatriculasOutros = idQuantidadeMatriculasOutros;
@@ -15,6 +16,15 @@ public class QuantidadeMatriculasOutros {
         this.deficiencia = deficiencia;
         this.alunosApoioSocial = alunosApoioSocial;
         this.fkInfoMatriculas = fkInfoMatriculas;
+        this.quantidadeAlunosSituacaoTrancada = quantidadeAlunosSituacaoTrancada;
+    }
+
+    public Integer getQuantidadeAlunosSituacaoTrancada() {
+        return quantidadeAlunosSituacaoTrancada;
+    }
+
+    public void setQuantidadeAlunosSituacaoTrancada(Integer quantidadeAlunosSituacaoTrancada) {
+        this.quantidadeAlunosSituacaoTrancada = quantidadeAlunosSituacaoTrancada;
     }
 
     public Integer getIdQuantidadeMatriculasOutros() {
