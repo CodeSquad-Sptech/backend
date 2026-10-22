@@ -45,7 +45,7 @@ public class InfoCursoRepository {
 
         if (idGerado == null) {
             throw new IllegalStateException(
-                    "Não foi possível recuperar o ID da instituição."
+                    "Não foi possível recuperar o ID de infoCurso."
             );
         }
 
