@@ -50,9 +50,12 @@ public class UsuarioRepository {
         if (idGerado == null) {
             throw new IllegalStateException(
                     "Não foi possível recuperar o ID do usuário."
+
             );
         }
 
-        return idGerado.intValue();
+        usuario.setIdUsuario(idGerado.intValue());
+
+        return usuario.getIdUsuario();
     }
 }

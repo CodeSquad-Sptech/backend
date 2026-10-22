@@ -1,7 +1,7 @@
 
 package br.com.code_squad.classes.repository;
 
-import br.com.code_squad.classes.model.Log;
+import br.com.code_squad.classes.model.Logs;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 
@@ -14,7 +14,7 @@ public class LogRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void inserir(Log log){
+    public void inserir(Logs log){
         String sql = "INSERT INTO logs (empresa, funcionario, nivel, mensagem, dataHora)VALUES (?, ?, ?, ?, ?, ?)";
 
         jdbcTemplate.update(sql, "Evolua", "Admin", log.getNivel(), log.getMensagem(), log.getDataHora());
