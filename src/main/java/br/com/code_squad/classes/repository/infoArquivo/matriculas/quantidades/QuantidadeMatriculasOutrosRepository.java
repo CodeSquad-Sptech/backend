@@ -13,11 +13,11 @@ public class QuantidadeMatriculasOutrosRepository {
 
     public void inserir(QuantidadeMatriculasOutros quantidadeMatriculasOutros){
         String sql = """
-                INSERT INTO quantidade_matriculas_outros 
-                (estrangeiro, financiamento, deficiencia, alunosApoioSocial, fkInfoMatriculas) VALUES (
-                """ + "? ,".repeat(4) + "?)";
+                INSERT INTO quantidade_matriculas_outros
+                (estrangeiro, financiamento, deficiencia, alunosApoioSocial, quantidadeAlunosSituacaoTrancada, fkInfoMatriculas) VALUES (
+                """ + "? ,".repeat(5) + "?)";
         jdbcTemplate.update(sql, quantidadeMatriculasOutros.getEstrangeiro(), quantidadeMatriculasOutros.getFinanciamento(),
                 quantidadeMatriculasOutros.getDeficiencia(), quantidadeMatriculasOutros.getAlunosApoioSocial(),
-                quantidadeMatriculasOutros.getFkInfoMatriculas());
+                quantidadeMatriculasOutros.getQuantidadeAlunosSituacaoTrancada(), quantidadeMatriculasOutros.getFkInfoMatriculas());
     }
 }
