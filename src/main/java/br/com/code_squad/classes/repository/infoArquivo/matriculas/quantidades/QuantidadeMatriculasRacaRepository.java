@@ -15,7 +15,7 @@ public class QuantidadeMatriculasRacaRepository {
         String sql = """
                 INSERT INTO quantidade_matriculas_raca
                 (branca, preta, parda, amarela, indigena, naoDeclarada, fkInfoMatriculas) VALUES (
-                """ + "? ,".repeat(5) + "?)";
+                """ + "? ,".repeat(6) + "?)";
         jdbcTemplate.update(sql, quantidadeMatriculasRaca.getBranca(), quantidadeMatriculasRaca.getPreta(),
                 quantidadeMatriculasRaca.getParda(), quantidadeMatriculasRaca.getAmarela(),
                 quantidadeMatriculasRaca.getIndigena(), quantidadeMatriculasRaca.getNaoDeclarada(),

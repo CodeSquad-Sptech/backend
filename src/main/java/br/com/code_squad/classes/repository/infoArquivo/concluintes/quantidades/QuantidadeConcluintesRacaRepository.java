@@ -15,7 +15,7 @@ public class QuantidadeConcluintesRacaRepository {
         String sql = """
                 INSERT INTO quantidade_concluintes_raca
                 (branca, preta, parda, amarela, indigena, corNaoDeclarada, fkInfoConcluintes) VALUES (
-                """ + "? ,".repeat(5) + "?)";
+                """ + "? ,".repeat(6) + "?)";
         jdbcTemplate.update(sql, quantidadeConcluintesRaca.getBranca(), quantidadeConcluintesRaca.getPreta(),
                 quantidadeConcluintesRaca.getParda(), quantidadeConcluintesRaca.getAmarela(),
                 quantidadeConcluintesRaca.getIndigena(), quantidadeConcluintesRaca.getCorNaoDeclarada(),

@@ -4,14 +4,14 @@ import java.time.LocalDate;
 
 public class InfoCurso {
     private Integer idInfoCurso;
-    private LocalDate ano;
+    private Integer ano;
     private String nomeCurso;
     private String tipoGrauAcademico;
     private String tipoModalidadeEnsino;
     private String tipoNivelAcademico;
     private Integer fkImportacao;
 
-    public InfoCurso(Integer idInfoCurso, LocalDate ano, String nomeCurso, String tipoGrauAcademico, String tipoModalidadeEnsino, String tipoNivelAcademico, Integer fkImportacao) {
+    public InfoCurso(Integer idInfoCurso, Integer ano, String nomeCurso, String tipoGrauAcademico, String tipoModalidadeEnsino, String tipoNivelAcademico, Integer fkImportacao) {
         this.idInfoCurso = idInfoCurso;
         this.ano = ano;
         this.nomeCurso = nomeCurso;
@@ -29,11 +29,11 @@ public class InfoCurso {
         this.idInfoCurso = idInfoCurso;
     }
 
-    public LocalDate getAno() {
+    public Integer getAno() {
         return ano;
     }
 
-    public void setAno(LocalDate ano) {
+    public void setAno(Integer ano) {
         this.ano = ano;
     }
 
