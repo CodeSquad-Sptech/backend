@@ -11,11 +11,10 @@ public class LogRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public LogRepository(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+        this.jdbcTemplate = jdbcTemplate;}
 
     public void inserir(Logs log){
-        String sql = "INSERT INTO logs (empresa, funcionario, nivel, mensagem, dataHora)VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO logs (empresa, funcionario, nivel, mensagem, dataHora) VALUES (?, ?, ?, ?, ?, ?)";
 
         jdbcTemplate.update(sql, "Evolua", "Admin", log.getNivel(), log.getMensagem(), log.getDataHora());
     }
