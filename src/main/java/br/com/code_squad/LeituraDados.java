@@ -4,6 +4,7 @@ import br.com.code_squad.classes.dto.CursoImportadoDTO;
 import br.com.code_squad.classes.model.infoArquivo.InfoCurso;
 import br.com.code_squad.classes.model.infoArquivo.concluintes.quantidades.*;
 import br.com.code_squad.classes.model.infoArquivo.matriculas.quantidades.*;
+import org.apache.commons.compress.compressors.zstandard.ZstdCompressorOutputStream;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -25,17 +26,20 @@ public class LeituraDados {
     public List<CursoImportadoDTO> extrairCursos(String nomeArquivo) {
         List<CursoImportadoDTO> cursosExtraidos = new ArrayList<>();
 
+        System.out.println("extrairCursos(): Tentando criar variaveis de arquivos");
         try (
                 InputStream arquivo = new FileInputStream(nomeArquivo);
                 Workbook workbook = new XSSFWorkbook(arquivo)
         ) {
-            System.out.printf("Iniciando leitura do arquivo %s%n", nomeArquivo);
+            System.out.printf("extrairCursos(): Iniciando leitura do arquivo %s%n", nomeArquivo);
 
             Sheet sheet = workbook.getSheetAt(0);
             for (Row row : sheet) {
                 if (row.getRowNum() == 0) {
                     continue;
                 }
+
+                System.out.println("extrairCursos(): Continuou.");
 
                 CursoImportadoDTO curso = new CursoImportadoDTO();
                 curso.setInfoCurso(new InfoCurso(
@@ -48,18 +52,26 @@ public class LeituraDados {
                         null
                 ));
 
+                System.out.println("extrairCursos(): Setou o curso");
+
                 curso.setQuantidadeMatriculasSexo(new QuantidadeMatriculasSexo(
                         null,
                         Integer.parseInt(row.getCell(5).getStringCellValue()),
                         Integer.parseInt(row.getCell(6).getStringCellValue()),
                         null
                 ));
+
+                System.out.println("extrairCursos(): Setou matriculas por sexo");
+
                 curso.setQuantidadeMatriculasTurno(new QuantidadeMatriculasTurno(
                         null,
                         Integer.parseInt(row.getCell(7).getStringCellValue()),
                         Integer.parseInt(row.getCell(8).getStringCellValue()),
                         null
                 ));
+
+                System.out.println("extrairCursos(): Setou matriculas por turno");
+
                 curso.setQuantidadeMatriculasIdade(new QuantidadeMatriculasIdade(
                         null,
                         Integer.parseInt(row.getCell(9).getStringCellValue()),
@@ -72,6 +84,9 @@ public class LeituraDados {
                         Integer.parseInt(row.getCell(16).getStringCellValue()),
                         null
                 ));
+
+                System.out.println("extrairCursos(): Setou matriculas por idade");
+
                 curso.setQuantidadeMatriculasRaca(new QuantidadeMatriculasRaca(
                         null,
                         Integer.parseInt(row.getCell(17).getStringCellValue()),
@@ -82,6 +97,9 @@ public class LeituraDados {
                         Integer.parseInt(row.getCell(22).getStringCellValue()),
                         null
                 ));
+
+                System.out.println("extrairCursos(): Setou matriculas por raça");
+
                 curso.setQuantidadeMatriculasOutros(new QuantidadeMatriculasOutros(
                         null,
                         Integer.parseInt(row.getCell(41).getStringCellValue()),
@@ -90,9 +108,15 @@ public class LeituraDados {
                         Integer.parseInt(row.getCell(52).getStringCellValue()),
                         null
                 ));
+
+                System.out.println("extrairCursos(): Setou matriculas por outros");
+
                 curso.getQuantidadeMatriculasOutros().setQuantidadeAlunosSituacaoTrancada(
                         Integer.parseInt(row.getCell(47).getStringCellValue())
                 );
+
+                System.out.println("extrairCursos(): Setou matriculas trancadas");
+
                 curso.setQuantidadeMatriculasRede(new QuantidadeMatriculasRede(
                         null,
                         Integer.parseInt(row.getCell(48).getStringCellValue()),
@@ -100,18 +124,26 @@ public class LeituraDados {
                         null
                 ));
 
+                System.out.println("extrairCursos(): Setou matriculas por rede");
+
                 curso.setQuantidadeConcluintesSexo(new QuantidadeConcluintesSexo(
                         null,
                         Integer.parseInt(row.getCell(23).getStringCellValue()),
                         Integer.parseInt(row.getCell(24).getStringCellValue()),
                         null
                 ));
+
+                System.out.println("extrairCursos(): Setou concluintes por sexo");
+
                 curso.setQuantidadeConcluintesTurno(new QuantidadeConcluintesTurno(
                         null,
                         Integer.parseInt(row.getCell(25).getStringCellValue()),
                         Integer.parseInt(row.getCell(26).getStringCellValue()),
                         null
                 ));
+
+                System.out.println("extrairCursos(): Setou concluintes por turno");
+
                 curso.setQuantidadeConcluintesIdade(new QuantidadeConcluintesIdade(
                         null,
                         Integer.parseInt(row.getCell(27).getStringCellValue()),
@@ -124,6 +156,9 @@ public class LeituraDados {
                         Integer.parseInt(row.getCell(34).getStringCellValue()),
                         null
                 ));
+
+                System.out.println("extrairCursos(): Setou concluintes por idade");
+
                 curso.setQuantidadeConcluintesRaca(new QuantidadeConcluintesRaca(
                         null,
                         Integer.parseInt(row.getCell(35).getStringCellValue()),
@@ -134,6 +169,9 @@ public class LeituraDados {
                         Integer.parseInt(row.getCell(40).getStringCellValue()),
                         null
                 ));
+
+                System.out.println("extrairCursos(): Setou concluintes por raca");
+
                 curso.setQuantidadeConcluintesOutros(new QuantidadeConcluintesOutros(
                         null,
                         Integer.parseInt(row.getCell(42).getStringCellValue()),
@@ -141,12 +179,17 @@ public class LeituraDados {
                         Integer.parseInt(row.getCell(44).getStringCellValue()),
                         null
                 ));
+
+                System.out.println("extrairCursos(): Setou concluintes por outros");
+
                 curso.setQuantidadeConcluintesRede(new QuantidadeConcluintesRede(
                         null,
                         Integer.parseInt(row.getCell(50).getStringCellValue()),
                         Integer.parseInt(row.getCell(51).getStringCellValue()),
                         null
                 ));
+
+                System.out.println("extrairCursos(): Setou concluintes por rede");
 
                 cursosExtraidos.add(curso);
             }

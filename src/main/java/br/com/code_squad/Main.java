@@ -17,10 +17,14 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Path arquivo = Path.of(args.length > 0 ? args[0] : "teste1.xlsx");
+        System.out.println("Caminho do arquivo definido");
 
+        System.out.println("Iniciar tentativa de leitura");
         try {
             List<CursoImportadoDTO> cursos =
                     new LeituraDados().extrairCursos(arquivo);
+
+            System.out.println("Lista definida");
 
             if (cursos.isEmpty()) {
                 throw new IllegalArgumentException(
@@ -28,12 +32,19 @@ public class Main {
                 );
             }
 
+            System.out.println("Lista não esta vazia");
+
             ConexaoBanco conexao = new ConexaoBanco();
 
+            System.out.println("Conexão com o banco definida");
+
+            System.out.println("Iniciar segundo try");
             try {
                 int idUsuario = args.length > 1
                         ? Integer.parseInt(args[1])
                         : buscarPrimeiroUsuario(conexao);
+
+                System.out.println("Id do usuario definido");
 
                 if (args.length <= 1) {
                     System.out.printf(
@@ -49,9 +60,13 @@ public class Main {
                         idUsuario
                 );
 
+                System.out.println("Importação criada");
+
                 Integer idImportacao =
                         criarImportacaoService(conexao)
                                 .importar(importacao, cursos);
+
+                System.out.println("ID de importação registrado");
 
                 System.out.printf(
                         "Importação concluída: %d cursos gravados. ID: %d.%n",
@@ -59,6 +74,7 @@ public class Main {
                         idImportacao
                 );
             } finally {
+                System.out.println("Fechando conexão");
                 conexao.getBasicDataSource().close();
             }
         } catch (Exception e) {
@@ -83,6 +99,8 @@ public class Main {
                         : null
         );
 
+        System.out.println("buscarPrimeiroUsuario(): Query feita.");
+
         if (idUsuario == null) {
             throw new IllegalStateException(
                     "Não há usuários cadastrados. Cadastre um usuário antes de importar."
@@ -95,7 +113,10 @@ public class Main {
     private static ImportacaoService criarImportacaoService(
             ConexaoBanco conexao
     ) {
+        System.out.println("criarImportacaoService(): Service iniciado");
         var jdbc = conexao.getJdbcTemplate();
+
+        System.out.println("criarImportacaoService(): Variavel com o template criada");
 
         return new ImportacaoService(
                 new ImportacaoRepository(jdbc),

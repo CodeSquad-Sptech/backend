@@ -88,11 +88,16 @@ public class ImportacaoService {
             );
         }
 
+        System.out.println("importar(): Processo de importação iniciou com a importação com argumentos validos");
+
         // 1. Registra o arquivo e recupera o ID da importação.
         Integer idImportacao = importacaoRepository.inserir(importacao);
 
+        System.out.println("importar(): ID da importação: " + idImportacao);
+
         // 2. Processa cada curso e seus indicadores.
         for (CursoImportadoDTO cursoDTO : cursos) {
+            System.out.println("importar(): Inicio do processo do curso '" + cursoDTO.getInfoCurso().getNomeCurso() + "'.");
 
             if (cursoDTO == null || cursoDTO.getInfoCurso() == null) {
                 throw new IllegalArgumentException(
@@ -113,7 +118,11 @@ public class ImportacaoService {
 
             // Salva concluintes e seus indicadores.
             salvarConcluintes(cursoDTO, idCurso);
+
+            System.out.println("importar(): Curso '" + cursoDTO.getInfoCurso().getNomeCurso() + "' foi processado.");
         }
+
+        System.out.println("importar(): Fim do processo de importação com id " + idImportacao);
 
         return idImportacao;
     }
@@ -121,6 +130,8 @@ public class ImportacaoService {
     private void salvarMatriculas(
             CursoImportadoDTO cursoDTO,
             Integer idCurso) {
+
+        System.out.println("salvarMatriculas(): Processo de salvar matriculas iniciado.");
 
         InfoMatriculas infoMatriculas =
                 new InfoMatriculas(null, idCurso);
@@ -131,55 +142,74 @@ public class ImportacaoService {
         QuantidadeMatriculasIdade idade =
                 cursoDTO.getQuantidadeMatriculasIdade();
 
+        System.out.println("salvarMatriculas(): Objeto idade inicializado");
+
         if (idade != null) {
             idade.setFkInfoMatriculas(idInfoMatriculas);
             matriculasIdadeRepository.inserir(idade);
+            System.out.println("salvarMatriculas(): idade " + idade + " salva");
         }
 
         QuantidadeMatriculasRaca raca =
                 cursoDTO.getQuantidadeMatriculasRaca();
 
+        System.out.println("salvarMatriculas(): Objeto raca inicializado");
+
         if (raca != null) {
             raca.setFkInfoMatriculas(idInfoMatriculas);
             matriculasRacaRepository.inserir(raca);
+            System.out.println("salvarMatriculas(): raca " + raca + " salva");
         }
 
         QuantidadeMatriculasSexo sexo =
                 cursoDTO.getQuantidadeMatriculasSexo();
 
+        System.out.println("salvarMatriculas(): Objeto sexo inicializado");
+
         if (sexo != null) {
             sexo.setFkInfoMatriculas(idInfoMatriculas);
             matriculasSexoRepository.inserir(sexo);
+            System.out.println("salvarMatriculas(): sexo " + sexo + " salva");
         }
 
         QuantidadeMatriculasTurno turno =
                 cursoDTO.getQuantidadeMatriculasTurno();
 
+        System.out.println("salvarMatriculas(): Objeto turno inicializado");
+
         if (turno != null) {
             turno.setFkInfoMatriculas(idInfoMatriculas);
             matriculasTurnoRepository.inserir(turno);
+            System.out.println("salvarMatriculas(): turno " + turno + " salva");
         }
 
         QuantidadeMatriculasOutros outros =
                 cursoDTO.getQuantidadeMatriculasOutros();
 
+        System.out.println("salvarMatriculas(): Objeto outros inicializado");
+
         if (outros != null) {
             outros.setFkInfoMatriculas(idInfoMatriculas);
             matriculasOutrosRepository.inserir(outros);
+            System.out.println("salvarMatriculas(): outros " + outros + " salva");
         }
 
         QuantidadeMatriculasRede rede =
                 cursoDTO.getQuantidadeMatriculasRede();
 
+        System.out.println("salvarMatriculas(): Objeto rede inicializado");
+
         if (rede != null) {
             rede.setFkInfoMatriculas(idInfoMatriculas);
             matriculasRedeRepository.inserir(rede);
+            System.out.println("salvarMatriculas(): rede " + rede + " salva");
         }
     }
 
     private void salvarConcluintes(
             CursoImportadoDTO cursoDTO,
             Integer idCurso) {
+        System.out.println("salvarConcluintes(): Processo de salvar concluintes iniciado.");
 
         InfoConcluintes infoConcluintes =
                 new InfoConcluintes(null, idCurso);
@@ -190,49 +220,67 @@ public class ImportacaoService {
         QuantidadeConcluintesIdade idade =
                 cursoDTO.getQuantidadeConcluintesIdade();
 
+        System.out.println("salvarMatriculas(): Objeto idade inicializado");
+
         if (idade != null) {
             idade.setFkInfoConcluintes(idInfoConcluintes);
             concluintesIdadeRepository.inserir(idade);
+            System.out.println("salvarMatriculas(): idade " + idade + " salva");
         }
 
         QuantidadeConcluintesOutros outros =
                 cursoDTO.getQuantidadeConcluintesOutros();
 
+        System.out.println("salvarMatriculas(): Objeto outros inicializado");
+
         if (outros != null) {
             outros.setFkInfoConcluintes(idInfoConcluintes);
             concluintesOutrosRepository.inserir(outros);
+            System.out.println("salvarMatriculas(): raca " + outros + " salva");
         }
 
         QuantidadeConcluintesRaca raca =
                 cursoDTO.getQuantidadeConcluintesRaca();
 
+        System.out.println("salvarMatriculas(): Objeto raca inicializado");
+
         if (raca != null) {
             raca.setFkInfoConcluintes(idInfoConcluintes);
             concluintesRacaRepository.inserir(raca);
+            System.out.println("salvarMatriculas(): sexo " + raca + " salva");
         }
 
         QuantidadeConcluintesSexo sexo =
                 cursoDTO.getQuantidadeConcluintesSexo();
 
+        System.out.println("salvarMatriculas(): Objeto sexo inicializado");
+
         if (sexo != null) {
             sexo.setFkInfoConcluintes(idInfoConcluintes);
             concluintesSexoRepository.inserir(sexo);
+            System.out.println("salvarMatriculas(): turno " + sexo + " salva");
         }
 
         QuantidadeConcluintesTurno turno =
                 cursoDTO.getQuantidadeConcluintesTurno();
 
+        System.out.println("salvarMatriculas(): Objeto turno inicializado");
+
         if (turno != null) {
             turno.setFkInfoConcluintes(idInfoConcluintes);
             concluintesTurnoRepository.inserir(turno);
+            System.out.println("salvarMatriculas(): outros " + turno + " salva");
         }
 
         QuantidadeConcluintesRede rede =
                 cursoDTO.getQuantidadeConcluintesRede();
 
+        System.out.println("salvarMatriculas(): Objeto rede inicializado");
+
         if (rede != null) {
             rede.setFkInfoConcluintes(idInfoConcluintes);
             concluintesRedeRepository.inserir(rede);
+            System.out.println("salvarMatriculas(): rede " + rede + " salva");
         }
     }
 }
