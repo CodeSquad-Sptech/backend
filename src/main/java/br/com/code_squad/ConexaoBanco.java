@@ -11,7 +11,7 @@ public class ConexaoBanco {
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setUrl("jdbc:mysql://localhost:3306/evolua");
         basicDataSource.setUsername("root");
-        basicDataSource.setPassword("urubu100");
+        basicDataSource.setPassword("tiacida123");
 
         this.basicDataSource = basicDataSource;
         this.jdbcTemplate = new JdbcTemplate(basicDataSource);
