@@ -4,6 +4,7 @@ import br.com.code_squad.classes.dto.CursoImportadoDTO;
 import br.com.code_squad.classes.model.infoArquivo.InfoCurso;
 import br.com.code_squad.classes.model.infoArquivo.concluintes.quantidades.*;
 import br.com.code_squad.classes.model.infoArquivo.matriculas.quantidades.*;
+import br.com.code_squad.classes.service.DatetimeService;
 import org.apache.commons.compress.compressors.zstandard.ZstdCompressorOutputStream;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -19,6 +20,8 @@ import java.util.List;
 
 public class LeituraDados {
 
+    private DatetimeService time = new DatetimeService();
+
     public List<CursoImportadoDTO> extrairCursos(Path caminho) {
         return extrairCursos(caminho.toString());
     }
@@ -26,12 +29,12 @@ public class LeituraDados {
     public List<CursoImportadoDTO> extrairCursos(String nomeArquivo) {
         List<CursoImportadoDTO> cursosExtraidos = new ArrayList<>();
 
-        System.out.println("extrairCursos(): Tentando criar variaveis de arquivos");
+        System.out.println(time.horaAtual() + "INFO: Tentando criar variaveis de arquivos");
         try (
                 InputStream arquivo = new FileInputStream(nomeArquivo);
                 Workbook workbook = new XSSFWorkbook(arquivo)
         ) {
-            System.out.printf("extrairCursos(): Iniciando leitura do arquivo %s%n", nomeArquivo);
+            System.out.printf(time.horaAtual() + "INFO: Iniciando leitura do arquivo %s%n", nomeArquivo);
 
             Sheet sheet = workbook.getSheetAt(0);
             for (Row row : sheet) {
@@ -39,7 +42,7 @@ public class LeituraDados {
                     continue;
                 }
 
-                System.out.println("extrairCursos(): Continuou.");
+                System.out.println(time.horaAtual() + "INFO: Continuou.");
 
                 CursoImportadoDTO curso = new CursoImportadoDTO();
                 curso.setInfoCurso(new InfoCurso(
@@ -52,7 +55,7 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou o curso");
+                System.out.println(time.horaAtual() + "INFO: Setou o curso");
 
                 curso.setQuantidadeMatriculasSexo(new QuantidadeMatriculasSexo(
                         null,
@@ -61,7 +64,7 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou matriculas por sexo");
+                System.out.println(time.horaAtual() + "INFO: Setou matriculas por sexo");
 
                 curso.setQuantidadeMatriculasTurno(new QuantidadeMatriculasTurno(
                         null,
@@ -70,7 +73,7 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou matriculas por turno");
+                System.out.println(time.horaAtual() + "INFO: Setou matriculas por turno");
 
                 curso.setQuantidadeMatriculasIdade(new QuantidadeMatriculasIdade(
                         null,
@@ -85,7 +88,7 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou matriculas por idade");
+                System.out.println(time.horaAtual() + "INFO: Setou matriculas por idade");
 
                 curso.setQuantidadeMatriculasRaca(new QuantidadeMatriculasRaca(
                         null,
@@ -98,7 +101,7 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou matriculas por raça");
+                System.out.println(time.horaAtual() + "INFO: Setou matriculas por raça");
 
                 curso.setQuantidadeMatriculasOutros(new QuantidadeMatriculasOutros(
                         null,
@@ -109,13 +112,13 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou matriculas por outros");
+                System.out.println(time.horaAtual() + "INFO: Setou matriculas por outros");
 
                 curso.getQuantidadeMatriculasOutros().setQuantidadeAlunosSituacaoTrancada(
                         Integer.parseInt(row.getCell(47).getStringCellValue())
                 );
 
-                System.out.println("extrairCursos(): Setou matriculas trancadas");
+                System.out.println(time.horaAtual() + "INFO: Setou matriculas trancadas");
 
                 curso.setQuantidadeMatriculasRede(new QuantidadeMatriculasRede(
                         null,
@@ -124,7 +127,7 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou matriculas por rede");
+                System.out.println(time.horaAtual() + "INFO: Setou matriculas por rede");
 
                 curso.setQuantidadeConcluintesSexo(new QuantidadeConcluintesSexo(
                         null,
@@ -133,7 +136,7 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou concluintes por sexo");
+                System.out.println(time.horaAtual() + "INFO: Setou concluintes por sexo");
 
                 curso.setQuantidadeConcluintesTurno(new QuantidadeConcluintesTurno(
                         null,
@@ -142,7 +145,7 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou concluintes por turno");
+                System.out.println(time.horaAtual() + "INFO: Setou concluintes por turno");
 
                 curso.setQuantidadeConcluintesIdade(new QuantidadeConcluintesIdade(
                         null,
@@ -157,7 +160,7 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou concluintes por idade");
+                System.out.println(time.horaAtual() + "INFO: Setou concluintes por idade");
 
                 curso.setQuantidadeConcluintesRaca(new QuantidadeConcluintesRaca(
                         null,
@@ -170,7 +173,7 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou concluintes por raca");
+                System.out.println(time.horaAtual() + "INFO: Setou concluintes por raca");
 
                 curso.setQuantidadeConcluintesOutros(new QuantidadeConcluintesOutros(
                         null,
@@ -180,7 +183,7 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou concluintes por outros");
+                System.out.println(time.horaAtual() + "INFO: Setou concluintes por outros");
 
                 curso.setQuantidadeConcluintesRede(new QuantidadeConcluintesRede(
                         null,
@@ -189,15 +192,15 @@ public class LeituraDados {
                         null
                 ));
 
-                System.out.println("extrairCursos(): Setou concluintes por rede");
+                System.out.println(time.horaAtual() + "INFO: Setou concluintes por rede");
 
                 cursosExtraidos.add(curso);
             }
 
-            System.out.println("Leitura do arquivo finalizada");
+            System.out.println(time.horaAtual() + "INFO:Leitura do arquivo finalizada");
             return cursosExtraidos;
         } catch (IOException e) {
-            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
+            System.err.println(time.horaAtual() + "ERRO: ao ler o arquivo: " + e.getMessage());
             return cursosExtraidos;
         }
     }

@@ -8,6 +8,7 @@ import br.com.code_squad.classes.repository.infoArquivo.concluintes.InfoConcluin
 import br.com.code_squad.classes.repository.infoArquivo.concluintes.quantidades.*;
 import br.com.code_squad.classes.repository.infoArquivo.matriculas.InfoMatriculaRepository;
 import br.com.code_squad.classes.repository.infoArquivo.matriculas.quantidades.*;
+import br.com.code_squad.classes.service.DatetimeService;
 import br.com.code_squad.classes.service.ImportacaoService;
 
 import java.nio.file.Path;
@@ -16,39 +17,41 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Path arquivo = Path.of(args.length > 0 ? args[0] : "teste1.xlsx");
-        System.out.println("Caminho do arquivo definido");
+        DatetimeService time = new DatetimeService();
 
-        System.out.println("Iniciar tentativa de leitura");
+        Path arquivo = Path.of(args.length > 0 ? args[0] : "teste1.xlsx");
+        System.out.println(time.horaAtual() + "INFO:Caminho do arquivo definido");
+
+        System.out.println(time.horaAtual() + "INFO:Iniciar tentativa de leitura");
         try {
             List<CursoImportadoDTO> cursos =
                     new LeituraDados().extrairCursos(arquivo);
 
-            System.out.println("Lista definida");
+            System.out.println(time.horaAtual() + "INFO:Lista iniciada");
 
             if (cursos.isEmpty()) {
                 throw new IllegalArgumentException(
-                        "A planilha não contém cursos para importar."
+                        time.horaAtual() + "ERRO:A planilha não contém cursos para importar."
                 );
             }
 
-            System.out.println("Lista não esta vazia");
+            System.out.println(time.horaAtual() + "INFO:Lista não esta vazia");
 
             ConexaoBanco conexao = new ConexaoBanco();
 
-            System.out.println("Conexão com o banco definida");
+            System.out.println(time.horaAtual() + "INFO:Conexão com o banco definida");
 
-            System.out.println("Iniciar segundo try");
+            System.out.println(time.horaAtual() + "INFO:Iniciar segundo try");
             try {
                 int idUsuario = args.length > 1
                         ? Integer.parseInt(args[1])
                         : buscarPrimeiroUsuario(conexao);
 
-                System.out.println("Id do usuario definido");
+                System.out.println(time.horaAtual() + "INFO:Id do usuario definido");
 
                 if (args.length <= 1) {
                     System.out.printf(
-                            "Usando o usuário de menor ID (%d).%n",
+                            time.horaAtual() + "INFO:Usando o usuário de menor ID (%d).%n",
                             idUsuario
                     );
                 }
@@ -60,38 +63,40 @@ public class Main {
                         idUsuario
                 );
 
-                System.out.println("Importação criada");
+                System.out.println(time.horaAtual() + "INFO:Importação criada");
 
                 Integer idImportacao =
                         criarImportacaoService(conexao)
                                 .importar(importacao, cursos);
 
-                System.out.println("ID de importação registrado");
+                System.out.println(time.horaAtual() + "INFO:ID de importação registrado");
 
                 System.out.printf(
-                        "Importação concluída: %d cursos gravados. ID: %d.%n",
+                        time.horaAtual() + "INFO:Importação concluída: %d cursos gravados. ID: %d.%n",
                         cursos.size(),
                         idImportacao
                 );
             } finally {
-                System.out.println("Fechando conexão");
+                System.out.println(time.horaAtual() + "INFO:Fechando conexão");
                 conexao.getBasicDataSource().close();
             }
         } catch (Exception e) {
             System.err.println(
-                    "Não foi possível importar a planilha: " + e.getMessage()
+                    time.horaAtual() + "ERRO:Não foi possível importar a planilha: " + e.getMessage()
             );
             Throwable causa = e;
             while (causa.getCause() != null && causa.getCause() != causa) {
                 causa = causa.getCause();
             }
-            System.err.println("Causa raiz: " + causa.getClass().getName()
+            System.err.println(time.horaAtual() + "INFO:Causa raiz: " + causa.getClass().getName()
                     + ": " + causa.getMessage());
             System.exit(1);
         }
     }
 
     private static int buscarPrimeiroUsuario(ConexaoBanco conexao) {
+        DatetimeService time = new DatetimeService();
+
         Integer idUsuario = conexao.getJdbcTemplate().query(
                 "SELECT idUsuario FROM usuario ORDER BY idUsuario LIMIT 1",
                 resultado -> resultado.next()
@@ -99,11 +104,11 @@ public class Main {
                         : null
         );
 
-        System.out.println("buscarPrimeiroUsuario(): Query feita.");
+        System.out.println(time.horaAtual() + "INFO:buscarPrimeiroUsuario(): Query feita.");
 
         if (idUsuario == null) {
             throw new IllegalStateException(
-                    "Não há usuários cadastrados. Cadastre um usuário antes de importar."
+                    time.horaAtual() + "ERRO:Não há usuários cadastrados. Cadastre um usuário antes de importar."
             );
         }
 
@@ -113,10 +118,12 @@ public class Main {
     private static ImportacaoService criarImportacaoService(
             ConexaoBanco conexao
     ) {
-        System.out.println("criarImportacaoService(): Service iniciado");
+        DatetimeService time = new DatetimeService();
+
+        System.out.println(time.horaAtual() + "INFO:criarImportacaoService(): Service iniciado");
         var jdbc = conexao.getJdbcTemplate();
 
-        System.out.println("criarImportacaoService(): Variavel com o template criada");
+        System.out.println(time.horaAtual() + "INFO:criarImportacaoService(): Variavel com o template criada");
 
         return new ImportacaoService(
                 new ImportacaoRepository(jdbc),
