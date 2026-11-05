@@ -9,7 +9,7 @@ public class DatetimeService {
         LocalDateTime agora = LocalDateTime.now();
         DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss:SSS");
 
-        return agora.format(formatador) + " - ";
+        return agora.format(formatador);
     }
 
 }
