@@ -19,7 +19,9 @@ public class Main {
     public static void main(String[] args) {
         DatetimeService time = new DatetimeService();
 
-        Path arquivo = Path.of(args.length > 0 ? args[0] : "teste1.xlsx");
+        Path arquivo = args.length > 0
+                ? Path.of(args[0])
+                : Path.of("planilhas", "teste1.xlsx");
         System.out.println(time.horaAtual() + "INFO:Caminho do arquivo definido");
 
         System.out.println(time.horaAtual() + "INFO:Iniciar tentativa de leitura");
