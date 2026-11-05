@@ -1,4 +1,3 @@
-
 package br.com.code_squad.classes.service;
 
 import br.com.code_squad.classes.dto.CursoImportadoDTO;
@@ -89,16 +88,16 @@ public class ImportacaoService {
             );
         }
 
-        System.out.println(time.horaAtual() + "INFO: Processo de importação iniciou com a importação com argumentos validos");
+        System.out.println(time.horaAtual() + " | INFO | Processo de importação iniciou com a importação com argumentos validos" + " | Evolua");
 
         // 1. Registra o arquivo e recupera o ID da importação.
         Integer idImportacao = importacaoRepository.inserir(importacao);
 
-        System.out.println(time.horaAtual() + "INFO: ID da importação: " + idImportacao);
+        System.out.println(time.horaAtual() + " | INFO | ID da importação: " + idImportacao + " | Evolua");
 
         // 2. Processa cada curso e seus indicadores.
         for (CursoImportadoDTO cursoDTO : cursos) {
-            System.out.println(time.horaAtual() + "INFO: Inicio do processo do curso '" + cursoDTO.getInfoCurso().getNomeCurso() + "'.");
+            System.out.println(time.horaAtual() + " | INFO | Inicio do processo do curso '" + cursoDTO.getInfoCurso().getNomeCurso() + "'." + " | Evolua");
 
             if (cursoDTO == null || cursoDTO.getInfoCurso() == null) {
                 throw new IllegalArgumentException(
@@ -120,10 +119,10 @@ public class ImportacaoService {
             // Salva concluintes e seus indicadores.
             salvarConcluintes(cursoDTO, idCurso);
 
-            System.out.println(time.horaAtual() + "INFO: Curso '" + cursoDTO.getInfoCurso().getNomeCurso() + "' foi processado.");
+            System.out.println(time.horaAtual() + " | INFO | Curso '" + cursoDTO.getInfoCurso().getNomeCurso() + "' foi processado." + " | Evolua");
         }
 
-        System.out.println(time.horaAtual() + "INFO: Fim do processo de importação com id " + idImportacao);
+        System.out.println(time.horaAtual() + " | INFO | Fim do processo de importação com id " + idImportacao + " | Evolua");
 
         return idImportacao;
     }
@@ -132,7 +131,7 @@ public class ImportacaoService {
             CursoImportadoDTO cursoDTO,
             Integer idCurso) {
 
-        System.out.println(time.horaAtual() + "INFO: Processo de salvar matriculas iniciado.");
+        System.out.println(time.horaAtual() + " | INFO | Processo de salvar matriculas iniciado." + " | Evolua");
 
         InfoMatriculas infoMatriculas =
                 new InfoMatriculas(null, idCurso);
@@ -143,74 +142,74 @@ public class ImportacaoService {
         QuantidadeMatriculasIdade idade =
                 cursoDTO.getQuantidadeMatriculasIdade();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto idade inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto idade inicializado" + " | Evolua");
 
         if (idade != null) {
             idade.setFkInfoMatriculas(idInfoMatriculas);
             matriculasIdadeRepository.inserir(idade);
-            System.out.println(time.horaAtual() + "INFO: idade " + idade + " salva");
+            System.out.println(time.horaAtual() + " | INFO | idade " + idade + " salva" + " | Evolua");
         }
 
         QuantidadeMatriculasRaca raca =
                 cursoDTO.getQuantidadeMatriculasRaca();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto raca inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto raca inicializado" + " | Evolua");
 
         if (raca != null) {
             raca.setFkInfoMatriculas(idInfoMatriculas);
             matriculasRacaRepository.inserir(raca);
-            System.out.println(time.horaAtual() + "INFO: raca " + raca + " salva");
+            System.out.println(time.horaAtual() + " | INFO | raca " + raca + " salva" + " | Evolua");
         }
 
         QuantidadeMatriculasSexo sexo =
                 cursoDTO.getQuantidadeMatriculasSexo();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto sexo inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto sexo inicializado" + " | Evolua");
 
         if (sexo != null) {
             sexo.setFkInfoMatriculas(idInfoMatriculas);
             matriculasSexoRepository.inserir(sexo);
-            System.out.println(time.horaAtual() + "INFO: sexo " + sexo + " salva");
+            System.out.println(time.horaAtual() + " | INFO | sexo " + sexo + " salva" + " | Evolua");
         }
 
         QuantidadeMatriculasTurno turno =
                 cursoDTO.getQuantidadeMatriculasTurno();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto turno inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto turno inicializado" + " | Evolua");
 
         if (turno != null) {
             turno.setFkInfoMatriculas(idInfoMatriculas);
             matriculasTurnoRepository.inserir(turno);
-            System.out.println(time.horaAtual() + "INFO: turno " + turno + " salva");
+            System.out.println(time.horaAtual() + " | INFO | turno " + turno + " salva" + " | Evolua");
         }
 
         QuantidadeMatriculasOutros outros =
                 cursoDTO.getQuantidadeMatriculasOutros();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto outros inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto outros inicializado" + " | Evolua");
 
         if (outros != null) {
             outros.setFkInfoMatriculas(idInfoMatriculas);
             matriculasOutrosRepository.inserir(outros);
-            System.out.println(time.horaAtual() + "INFO: outros " + outros + " salva");
+            System.out.println(time.horaAtual() + " | INFO | outros " + outros + " salva" + " | Evolua");
         }
 
         QuantidadeMatriculasRede rede =
                 cursoDTO.getQuantidadeMatriculasRede();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto rede inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto rede inicializado" + " | Evolua");
 
         if (rede != null) {
             rede.setFkInfoMatriculas(idInfoMatriculas);
             matriculasRedeRepository.inserir(rede);
-            System.out.println(time.horaAtual() + "INFO: rede " + rede + " salva");
+            System.out.println(time.horaAtual() + " | INFO | rede " + rede + " salva" + " | Evolua");
         }
     }
 
     private void salvarConcluintes(
             CursoImportadoDTO cursoDTO,
             Integer idCurso) {
-        System.out.println(time.horaAtual() + "INFO: Processo de salvar concluintes iniciado.");
+        System.out.println(time.horaAtual() + " | INFO | Processo de salvar concluintes iniciado." + " | Evolua");
 
         InfoConcluintes infoConcluintes =
                 new InfoConcluintes(null, idCurso);
@@ -221,67 +220,67 @@ public class ImportacaoService {
         QuantidadeConcluintesIdade idade =
                 cursoDTO.getQuantidadeConcluintesIdade();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto idade inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto idade inicializado" + " | Evolua");
 
         if (idade != null) {
             idade.setFkInfoConcluintes(idInfoConcluintes);
             concluintesIdadeRepository.inserir(idade);
-            System.out.println(time.horaAtual() + "INFO: idade " + idade + " salva");
+            System.out.println(time.horaAtual() + " | INFO | idade " + idade + " salva" + " | Evolua");
         }
 
         QuantidadeConcluintesOutros outros =
                 cursoDTO.getQuantidadeConcluintesOutros();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto outros inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto outros inicializado" + " | Evolua");
 
         if (outros != null) {
             outros.setFkInfoConcluintes(idInfoConcluintes);
             concluintesOutrosRepository.inserir(outros);
-            System.out.println(time.horaAtual() + "INFO: raca " + outros + " salva");
+            System.out.println(time.horaAtual() + " | INFO | raca " + outros + " salva" + " | Evolua");
         }
 
         QuantidadeConcluintesRaca raca =
                 cursoDTO.getQuantidadeConcluintesRaca();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto raca inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto raca inicializado" + " | Evolua");
 
         if (raca != null) {
             raca.setFkInfoConcluintes(idInfoConcluintes);
             concluintesRacaRepository.inserir(raca);
-            System.out.println(time.horaAtual() + "INFO: sexo " + raca + " salva");
+            System.out.println(time.horaAtual() + " | INFO | sexo " + raca + " salva" + " | Evolua");
         }
 
         QuantidadeConcluintesSexo sexo =
                 cursoDTO.getQuantidadeConcluintesSexo();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto sexo inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto sexo inicializado" + " | Evolua");
 
         if (sexo != null) {
             sexo.setFkInfoConcluintes(idInfoConcluintes);
             concluintesSexoRepository.inserir(sexo);
-            System.out.println(time.horaAtual() + "INFO: turno " + sexo + " salva");
+            System.out.println(time.horaAtual() + " | INFO | turno " + sexo + " salva" + " | Evolua");
         }
 
         QuantidadeConcluintesTurno turno =
                 cursoDTO.getQuantidadeConcluintesTurno();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto turno inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto turno inicializado" + " | Evolua");
 
         if (turno != null) {
             turno.setFkInfoConcluintes(idInfoConcluintes);
             concluintesTurnoRepository.inserir(turno);
-            System.out.println(time.horaAtual() + "INFO: outros " + turno + " salva");
+            System.out.println(time.horaAtual() + " | INFO | outros " + turno + " salva" + " | Evolua");
         }
 
         QuantidadeConcluintesRede rede =
                 cursoDTO.getQuantidadeConcluintesRede();
 
-        System.out.println(time.horaAtual() + "INFO: Objeto rede inicializado");
+        System.out.println(time.horaAtual() + " | INFO | Objeto rede inicializado" + " | Evolua");
 
         if (rede != null) {
             rede.setFkInfoConcluintes(idInfoConcluintes);
             concluintesRedeRepository.inserir(rede);
-            System.out.println(time.horaAtual() + "INFO: rede " + rede + " salva");
+            System.out.println(time.horaAtual() + " | INFO | rede " + rede + " salva" + " | Evolua");
         }
     }
 }
