@@ -9,7 +9,9 @@ public class ConexaoBanco {
 
     public ConexaoBanco() {
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl("jdbc:mysql://localhost:3306/evolua");
+        basicDataSource.setUrl("jdbc:mysql://localhost:3306/evolua"
+        + "?useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_unicode_ci"
+        );
         basicDataSource.setUsername("root");
         basicDataSource.setPassword("urubu100");
 
