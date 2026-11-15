@@ -1,10 +1,14 @@
 package br.com.code_squad.classes.model.infoArquivo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Importacao {
     private Integer idImportacao;
     private String nomeArquivo;
     private String dataImportacao;
     private Integer fkUsuario;
+    private List<InfoCurso> cursos = new ArrayList<>();
 
     public Importacao(Integer idImportacao, String nomeArquivo, String dataImportacao, Integer fkUsuario) {
         this.idImportacao = idImportacao;
@@ -43,5 +47,13 @@ public class Importacao {
 
     public void setFkUsuario(Integer fkUsuario) {
         this.fkUsuario = fkUsuario;
+    }
+
+    public void adicionarCurso(InfoCurso curso) {
+        cursos.add(curso);
+    }
+
+    public List<InfoCurso> getCursos() {
+        return cursos;
     }
 }
