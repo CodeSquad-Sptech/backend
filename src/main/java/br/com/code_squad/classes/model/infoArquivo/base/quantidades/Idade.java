@@ -1,4 +1,4 @@
-package br.com.code_squad.classes.model.infoArquivo.baseQtd;
+package br.com.code_squad.classes.model.infoArquivo.base.quantidades;
 
 public abstract class Idade {
     private Integer idIdade;
@@ -11,6 +11,19 @@ public abstract class Idade {
     private Integer I50a59;
     private Integer I60Mais;
     private Integer fk;
+
+    public Idade(Integer idIdade, Integer i0a17, Integer i18a24, Integer i25a29, Integer i30a34, Integer i35a39, Integer i40a49, Integer i50a59, Integer i60Mais, Integer fk) {
+        this.idIdade = idIdade;
+        I0a17 = i0a17;
+        I18a24 = i18a24;
+        I25a29 = i25a29;
+        I30a34 = i30a34;
+        I35a39 = i35a39;
+        I40a49 = i40a49;
+        I50a59 = i50a59;
+        I60Mais = i60Mais;
+        this.fk = fk;
+    }
 
     public Integer getIdIdade() {
         return idIdade;

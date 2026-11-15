@@ -1,88 +1,10 @@
 package br.com.code_squad.classes.model.infoArquivo.concluintes.quantidades;
 
-public class QuantidadeConcluintesRaca {
-    private Integer idQuantidadeConcluintesRaca;
-    private Integer branca;
-    private Integer preta;
-    private Integer parda;
-    private Integer amarela;
-    private Integer indigena;
-    private Integer corNaoDeclarada;
-    private Integer fkInfoConcluintes;
+import br.com.code_squad.classes.model.infoArquivo.base.quantidades.Raca;
 
-    public QuantidadeConcluintesRaca(Integer idQuantidadeConcluintesRaca, Integer branca, Integer preta, Integer parda, Integer amarela, Integer indigena, Integer corNaoDeclarada, Integer fkInfoConcluintes) {
-        this.idQuantidadeConcluintesRaca = idQuantidadeConcluintesRaca;
-        this.branca = branca;
-        this.preta = preta;
-        this.parda = parda;
-        this.amarela = amarela;
-        this.indigena = indigena;
-        this.corNaoDeclarada = corNaoDeclarada;
-        this.fkInfoConcluintes = fkInfoConcluintes;
-    }
+public class QuantidadeConcluintesRaca extends Raca {
 
-    public Integer getIdQuantidadeConcluintesRaca() {
-
-        return idQuantidadeConcluintesRaca;
-    }
-
-    public void setIdQuantidadeConcluintesRaca(Integer idQuantidadeConcluintesRaca) {
-        this.idQuantidadeConcluintesRaca = idQuantidadeConcluintesRaca;
-    }
-
-    public Integer getBranca() {
-        return branca;
-    }
-
-    public void setBranca(Integer branca) {
-        this.branca = branca;
-    }
-
-    public Integer getPreta() {
-        return preta;
-    }
-
-    public void setPreta(Integer preta) {
-        this.preta = preta;
-    }
-
-    public Integer getParda() {
-        return parda;
-    }
-
-    public void setParda(Integer parda) {
-        this.parda = parda;
-    }
-
-    public Integer getAmarela() {
-        return amarela;
-    }
-
-    public void setAmarela(Integer amarela) {
-        this.amarela = amarela;
-    }
-
-    public Integer getIndigena() {
-        return indigena;
-    }
-
-    public void setIndigena(Integer indigena) {
-        this.indigena = indigena;
-    }
-
-    public Integer getCorNaoDeclarada() {
-        return corNaoDeclarada;
-    }
-
-    public void setCorNaoDeclarada(Integer corNaoDeclarada) {
-        this.corNaoDeclarada = corNaoDeclarada;
-    }
-
-    public Integer getFkInfoConcluintes() {
-        return fkInfoConcluintes;
-    }
-
-    public void setFkInfoConcluintes(Integer fkInfoConcluintes) {
-        this.fkInfoConcluintes = fkInfoConcluintes;
+    public QuantidadeConcluintesRaca(Integer id, Integer branca, Integer preta, Integer parda, Integer amarela, Integer indigena, Integer corNaoDeclarada, Integer fk) {
+        super(id, branca, preta, parda, amarela, indigena, corNaoDeclarada, fk);
     }
 }
