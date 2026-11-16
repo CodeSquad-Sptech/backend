@@ -1,24 +1,15 @@
 package br.com.code_squad.classes.model.infoArquivo.base.quantidades;
 
-public abstract class Rede {
-    private Integer id;
+import br.com.code_squad.classes.model.infoArquivo.base.Base;
+
+public abstract class Rede extends Base {
     private Integer redePublica;
     private Integer redePrivada;
-    private Integer fk;
 
-    public Rede(Integer id, Integer redePublica, Integer redePrivada, Integer fk) {
-        this.id = id;
+    public Rede(Integer id, Integer fk, Integer redePublica, Integer redePrivada) {
+        super(id, fk);
         this.redePublica = redePublica;
         this.redePrivada = redePrivada;
-        this.fk = fk;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getRedePublica() {
@@ -35,13 +26,5 @@ public abstract class Rede {
 
     public void setRedePrivada(Integer redePrivada) {
         this.redePrivada = redePrivada;
-    }
-
-    public Integer getFk() {
-        return fk;
-    }
-
-    public void setFk(Integer fk) {
-        this.fk = fk;
     }
 }

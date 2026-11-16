@@ -1,24 +1,15 @@
 package br.com.code_squad.classes.model.infoArquivo.base.quantidades;
 
-public abstract class Turno {
-    private Integer id;
+import br.com.code_squad.classes.model.infoArquivo.base.Base;
+
+public abstract class Turno extends Base {
     private Integer diurno;
     private Integer noturno;
-    private Integer fk;
 
-    public Turno(Integer id, Integer diurno, Integer noturno, Integer fk) {
-        this.id = id;
+    public Turno(Integer id, Integer fk, Integer diurno, Integer noturno) {
+        super(id, fk);
         this.diurno = diurno;
         this.noturno = noturno;
-        this.fk = fk;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getDiurno() {
@@ -35,13 +26,5 @@ public abstract class Turno {
 
     public void setNoturno(Integer noturno) {
         this.noturno = noturno;
-    }
-
-    public Integer getFk() {
-        return fk;
-    }
-
-    public void setFk(Integer fk) {
-        this.fk = fk;
     }
 }

@@ -1,32 +1,23 @@
 package br.com.code_squad.classes.model.infoArquivo.base.quantidades;
 
-public abstract class Raca {
-    private Integer id;
+import br.com.code_squad.classes.model.infoArquivo.base.Base;
+
+public abstract class Raca extends Base {
     private Integer branca;
     private Integer preta;
     private Integer parda;
     private Integer amarela;
     private Integer indigena;
     private Integer corNaoDeclarada;
-    private Integer fk;
 
-    public Raca(Integer id, Integer branca, Integer preta, Integer parda, Integer amarela, Integer indigena, Integer corNaoDeclarada, Integer fk) {
-        this.id = id;
+    public Raca(Integer id, Integer fk, Integer branca, Integer preta, Integer parda, Integer amarela, Integer indigena, Integer corNaoDeclarada) {
+        super(id, fk);
         this.branca = branca;
         this.preta = preta;
         this.parda = parda;
         this.amarela = amarela;
         this.indigena = indigena;
         this.corNaoDeclarada = corNaoDeclarada;
-        this.fk = fk;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getBranca() {
@@ -75,13 +66,5 @@ public abstract class Raca {
 
     public void setCorNaoDeclarada(Integer corNaoDeclarada) {
         this.corNaoDeclarada = corNaoDeclarada;
-    }
-
-    public Integer getFk() {
-        return fk;
-    }
-
-    public void setFk(Integer fk) {
-        this.fk = fk;
     }
 }

@@ -4,7 +4,7 @@ import br.com.code_squad.classes.model.infoArquivo.base.quantidades.Outros;
 
 public class QuantidadeMatriculasOutros extends Outros {
 
-    public QuantidadeMatriculasOutros(Integer id, Integer estrangeiro, Integer financiamento, Integer deficiencia, Integer fk) {
-        super(id, estrangeiro, financiamento, deficiencia, fk);
+    public QuantidadeMatriculasOutros(Integer id, Integer fk, Integer estrangeiro, Integer financiamento, Integer deficiencia) {
+        super(id, fk, estrangeiro, financiamento, deficiencia);
     }
 }

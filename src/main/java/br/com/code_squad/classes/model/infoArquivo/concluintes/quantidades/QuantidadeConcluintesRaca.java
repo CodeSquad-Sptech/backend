@@ -4,7 +4,7 @@ import br.com.code_squad.classes.model.infoArquivo.base.quantidades.Raca;
 
 public class QuantidadeConcluintesRaca extends Raca {
 
-    public QuantidadeConcluintesRaca(Integer id, Integer branca, Integer preta, Integer parda, Integer amarela, Integer indigena, Integer corNaoDeclarada, Integer fk) {
-        super(id, branca, preta, parda, amarela, indigena, corNaoDeclarada, fk);
+    public QuantidadeConcluintesRaca(Integer id, Integer fk, Integer branca, Integer preta, Integer parda, Integer amarela, Integer indigena, Integer corNaoDeclarada) {
+        super(id, fk, branca, preta, parda, amarela, indigena, corNaoDeclarada);
     }
 }

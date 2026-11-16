@@ -1,10 +1,10 @@
 package br.com.code_squad.classes.model.infoArquivo.base;
 
-public abstract class Info {
+public abstract class Base {
     private Integer id;
     private Integer fk;
 
-    public Info(Integer id, Integer fk) {
+    public Base(Integer id, Integer fk) {
         this.id = id;
         this.fk = fk;
     }

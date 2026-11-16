@@ -4,7 +4,7 @@ import br.com.code_squad.classes.model.infoArquivo.base.quantidades.Rede;
 
 public class QuantidadeMatriculasRede extends Rede {
 
-    public QuantidadeMatriculasRede(Integer id, Integer redePublica, Integer redePrivada, Integer fk) {
-        super(id, redePublica, redePrivada, fk);
+    public QuantidadeMatriculasRede(Integer id, Integer fk, Integer redePublica, Integer redePrivada) {
+        super(id, fk, redePublica, redePrivada);
     }
 }
