@@ -32,7 +32,7 @@ public class InfoMatriculaRepository {
             );
 
 
-            comando.setObject(1, infoMatriculas.getFkInfoCurso());
+            comando.setObject(1, infoMatriculas.getFk());
 
             return comando;
         }, keyHolder);
@@ -45,8 +45,8 @@ public class InfoMatriculaRepository {
             );
         }
 
-        infoMatriculas.setIdInfoMatriculas(idGerado.intValue());
+        infoMatriculas.setId(idGerado.intValue());
 
-        return infoMatriculas.getIdInfoMatriculas();
+        return infoMatriculas.getId();
     }
 }

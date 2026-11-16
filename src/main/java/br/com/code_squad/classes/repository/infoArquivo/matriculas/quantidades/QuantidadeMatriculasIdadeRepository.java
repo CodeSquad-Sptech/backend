@@ -16,10 +16,10 @@ public class QuantidadeMatriculasIdadeRepository {
                 matriculas25a29, matriculas30a34, matriculas35a39, matriculas40a49, 
                 matriculas50a59, matriculas60Mais, fkInfoMatriculas) VALUES (
                 """ + "? ,".repeat(8) + "?)";
-        jdbcTemplate.update(sql, quantidadeMatriculasIdade.getMatriculas0a17(), quantidadeMatriculasIdade.getMatriculas18a24(),
-                quantidadeMatriculasIdade.getMatriculas25a29(), quantidadeMatriculasIdade.getMatriculas30a34(),
-                quantidadeMatriculasIdade.getMatriculas35a39(), quantidadeMatriculasIdade.getMatriculas40a49(),
-                quantidadeMatriculasIdade.getMatriculas50a59(), quantidadeMatriculasIdade.getMatriculas60Mais(),
-                quantidadeMatriculasIdade.getFkInfoMatriculas());
+        jdbcTemplate.update(sql, quantidadeMatriculasIdade.getI0a17(), quantidadeMatriculasIdade.getI18a24(),
+                quantidadeMatriculasIdade.getI25a29(), quantidadeMatriculasIdade.getI30a34(),
+                quantidadeMatriculasIdade.getI35a39(), quantidadeMatriculasIdade.getI40a49(),
+                quantidadeMatriculasIdade.getI50a59(), quantidadeMatriculasIdade.getI60Mais(),
+                quantidadeMatriculasIdade.getFk());
     }
 }

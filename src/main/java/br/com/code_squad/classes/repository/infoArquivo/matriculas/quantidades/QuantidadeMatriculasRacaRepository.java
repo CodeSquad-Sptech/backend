@@ -18,7 +18,7 @@ public class QuantidadeMatriculasRacaRepository {
                 """ + "? ,".repeat(6) + "?)";
         jdbcTemplate.update(sql, quantidadeMatriculasRaca.getBranca(), quantidadeMatriculasRaca.getPreta(),
                 quantidadeMatriculasRaca.getParda(), quantidadeMatriculasRaca.getAmarela(),
-                quantidadeMatriculasRaca.getIndigena(), quantidadeMatriculasRaca.getNaoDeclarada(),
-                quantidadeMatriculasRaca.getFkInfoMatriculas());
+                quantidadeMatriculasRaca.getIndigena(), quantidadeMatriculasRaca.getCorNaoDeclarada(),
+                quantidadeMatriculasRaca.getFk());
     }
 }
