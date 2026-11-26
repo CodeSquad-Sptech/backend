@@ -17,6 +17,6 @@ public class QuantidadeConcluintesOutrosRepository {
                 (estrangeiro, financiamento, deficiencia, fkInfoConcluintes) VALUES (
                 """ + "? ,".repeat(3) + "?)";
         jdbcTemplate.update(sql, quantidadeConcluintesOutros.getEstrangeiro(), quantidadeConcluintesOutros.getFinanciamento(),
-                quantidadeConcluintesOutros.getDeficiencia(), quantidadeConcluintesOutros.getFkInfoConcluintes());
+                quantidadeConcluintesOutros.getDeficiencia(), quantidadeConcluintesOutros.getFk());
     }
 }

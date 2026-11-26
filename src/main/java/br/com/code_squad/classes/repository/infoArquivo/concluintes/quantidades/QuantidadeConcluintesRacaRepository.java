@@ -19,6 +19,6 @@ public class QuantidadeConcluintesRacaRepository {
         jdbcTemplate.update(sql, quantidadeConcluintesRaca.getBranca(), quantidadeConcluintesRaca.getPreta(),
                 quantidadeConcluintesRaca.getParda(), quantidadeConcluintesRaca.getAmarela(),
                 quantidadeConcluintesRaca.getIndigena(), quantidadeConcluintesRaca.getCorNaoDeclarada(),
-                quantidadeConcluintesRaca.getFkInfoConcluintes());
+                quantidadeConcluintesRaca.getFk());
     }
 }

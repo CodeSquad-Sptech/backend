@@ -1,62 +1,15 @@
 package br.com.code_squad.classes.model.infoArquivo.matriculas.quantidades;
 
-public class QuantidadeMatriculasOutros {
-    private Integer idQuantidadeMatriculasOutros;
-    private Integer estrangeiro;
-    private Integer financiamento;
-    private Integer deficiencia;
+import br.com.code_squad.classes.model.infoArquivo.base.quantidades.Outros;
+
+public class QuantidadeMatriculasOutros extends Outros {
     private Integer alunosApoioSocial;
-    private Integer fkInfoMatriculas;
     private Integer quantidadeAlunosSituacaoTrancada;
 
-    public QuantidadeMatriculasOutros(Integer idQuantidadeMatriculasOutros, Integer estrangeiro, Integer financiamento, Integer deficiencia, Integer alunosApoioSocial, Integer fkInfoMatriculas) {
-        this.idQuantidadeMatriculasOutros = idQuantidadeMatriculasOutros;
-        this.estrangeiro = estrangeiro;
-        this.financiamento = financiamento;
-        this.deficiencia = deficiencia;
+    public QuantidadeMatriculasOutros(Integer id, Integer fk, Integer estrangeiro, Integer financiamento, Integer deficiencia, Integer alunosApoioSocial, Integer quantidadeAlunosSituacaoTrancada) {
+        super(id, fk, estrangeiro, financiamento, deficiencia);
         this.alunosApoioSocial = alunosApoioSocial;
-        this.fkInfoMatriculas = fkInfoMatriculas;
         this.quantidadeAlunosSituacaoTrancada = quantidadeAlunosSituacaoTrancada;
-    }
-
-    public Integer getQuantidadeAlunosSituacaoTrancada() {
-        return quantidadeAlunosSituacaoTrancada;
-    }
-
-    public void setQuantidadeAlunosSituacaoTrancada(Integer quantidadeAlunosSituacaoTrancada) {
-        this.quantidadeAlunosSituacaoTrancada = quantidadeAlunosSituacaoTrancada;
-    }
-
-    public Integer getIdQuantidadeMatriculasOutros() {
-        return idQuantidadeMatriculasOutros;
-    }
-
-    public void setIdQuantidadeMatriculasOutros(Integer idQuantidadeMatriculasOutros) {
-        this.idQuantidadeMatriculasOutros = idQuantidadeMatriculasOutros;
-    }
-
-    public Integer getEstrangeiro() {
-        return estrangeiro;
-    }
-
-    public void setEstrangeiro(Integer estrangeiro) {
-        this.estrangeiro = estrangeiro;
-    }
-
-    public Integer getFinanciamento() {
-        return financiamento;
-    }
-
-    public void setFinanciamento(Integer financiamento) {
-        this.financiamento = financiamento;
-    }
-
-    public Integer getDeficiencia() {
-        return deficiencia;
-    }
-
-    public void setDeficiencia(Integer deficiencia) {
-        this.deficiencia = deficiencia;
     }
 
     public Integer getAlunosApoioSocial() {
@@ -67,11 +20,11 @@ public class QuantidadeMatriculasOutros {
         this.alunosApoioSocial = alunosApoioSocial;
     }
 
-    public Integer getFkInfoMatriculas() {
-        return fkInfoMatriculas;
+    public Integer getQuantidadeAlunosSituacaoTrancada() {
+        return quantidadeAlunosSituacaoTrancada;
     }
 
-    public void setFkInfoMatriculas(Integer fkInfoMatriculas) {
-        this.fkInfoMatriculas = fkInfoMatriculas;
+    public void setQuantidadeAlunosSituacaoTrancada(Integer quantidadeAlunosSituacaoTrancada) {
+        this.quantidadeAlunosSituacaoTrancada = quantidadeAlunosSituacaoTrancada;
     }
 }

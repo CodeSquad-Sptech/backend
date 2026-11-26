@@ -32,7 +32,7 @@ public class InfoConcluintesRepository {
             );
 
 
-            comando.setObject(1, infoConcluintes.getFkInfoCurso());
+            comando.setObject(1, infoConcluintes.getFk());
 
             return comando;
         }, keyHolder);
@@ -45,8 +45,8 @@ public class InfoConcluintesRepository {
             );
         }
 
-        infoConcluintes.setIdInfoConcluintes(idGerado.intValue());
+        infoConcluintes.setId(idGerado.intValue());
 
-        return infoConcluintes.getIdInfoConcluintes();
+        return infoConcluintes.getId();
     }
 }

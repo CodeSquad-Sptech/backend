@@ -18,6 +18,6 @@ public class QuantidadeMatriculasOutrosRepository {
                 """ + "? ,".repeat(5) + "?)";
         jdbcTemplate.update(sql, quantidadeMatriculasOutros.getEstrangeiro(), quantidadeMatriculasOutros.getFinanciamento(),
                 quantidadeMatriculasOutros.getDeficiencia(), quantidadeMatriculasOutros.getAlunosApoioSocial(),
-                quantidadeMatriculasOutros.getQuantidadeAlunosSituacaoTrancada(), quantidadeMatriculasOutros.getFkInfoMatriculas());
+                quantidadeMatriculasOutros.getQuantidadeAlunosSituacaoTrancada(), quantidadeMatriculasOutros.getFk());
     }
 }

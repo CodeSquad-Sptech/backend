@@ -145,7 +145,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto idade inicializado" + " | Evolua");
 
         if (idade != null) {
-            idade.setFkInfoMatriculas(idInfoMatriculas);
+            idade.setFk(idInfoMatriculas);
             matriculasIdadeRepository.inserir(idade);
             System.out.println(time.horaAtual() + " | INFO | idade " + idade + " salva" + " | Evolua");
         }
@@ -156,7 +156,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto raca inicializado" + " | Evolua");
 
         if (raca != null) {
-            raca.setFkInfoMatriculas(idInfoMatriculas);
+            raca.setFk(idInfoMatriculas);
             matriculasRacaRepository.inserir(raca);
             System.out.println(time.horaAtual() + " | INFO | raca " + raca + " salva" + " | Evolua");
         }
@@ -167,7 +167,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto sexo inicializado" + " | Evolua");
 
         if (sexo != null) {
-            sexo.setFkInfoMatriculas(idInfoMatriculas);
+            sexo.setFk(idInfoMatriculas);
             matriculasSexoRepository.inserir(sexo);
             System.out.println(time.horaAtual() + " | INFO | sexo " + sexo + " salva" + " | Evolua");
         }
@@ -178,7 +178,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto turno inicializado" + " | Evolua");
 
         if (turno != null) {
-            turno.setFkInfoMatriculas(idInfoMatriculas);
+            turno.setFk(idInfoMatriculas);
             matriculasTurnoRepository.inserir(turno);
             System.out.println(time.horaAtual() + " | INFO | turno " + turno + " salva" + " | Evolua");
         }
@@ -189,7 +189,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto outros inicializado" + " | Evolua");
 
         if (outros != null) {
-            outros.setFkInfoMatriculas(idInfoMatriculas);
+            outros.setFk(idInfoMatriculas);
             matriculasOutrosRepository.inserir(outros);
             System.out.println(time.horaAtual() + " | INFO | outros " + outros + " salva" + " | Evolua");
         }
@@ -200,7 +200,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto rede inicializado" + " | Evolua");
 
         if (rede != null) {
-            rede.setFkInfoMatriculas(idInfoMatriculas);
+            rede.setFk(idInfoMatriculas);
             matriculasRedeRepository.inserir(rede);
             System.out.println(time.horaAtual() + " | INFO | rede " + rede + " salva" + " | Evolua");
         }
@@ -223,7 +223,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto idade inicializado" + " | Evolua");
 
         if (idade != null) {
-            idade.setFkInfoConcluintes(idInfoConcluintes);
+            idade.setFk(idInfoConcluintes);
             concluintesIdadeRepository.inserir(idade);
             System.out.println(time.horaAtual() + " | INFO | idade " + idade + " salva" + " | Evolua");
         }
@@ -234,7 +234,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto outros inicializado" + " | Evolua");
 
         if (outros != null) {
-            outros.setFkInfoConcluintes(idInfoConcluintes);
+            outros.setFk(idInfoConcluintes);
             concluintesOutrosRepository.inserir(outros);
             System.out.println(time.horaAtual() + " | INFO | raca " + outros + " salva" + " | Evolua");
         }
@@ -245,7 +245,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto raca inicializado" + " | Evolua");
 
         if (raca != null) {
-            raca.setFkInfoConcluintes(idInfoConcluintes);
+            raca.setFk(idInfoConcluintes);
             concluintesRacaRepository.inserir(raca);
             System.out.println(time.horaAtual() + " | INFO | sexo " + raca + " salva" + " | Evolua");
         }
@@ -256,7 +256,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto sexo inicializado" + " | Evolua");
 
         if (sexo != null) {
-            sexo.setFkInfoConcluintes(idInfoConcluintes);
+            sexo.setFk(idInfoConcluintes);
             concluintesSexoRepository.inserir(sexo);
             System.out.println(time.horaAtual() + " | INFO | turno " + sexo + " salva" + " | Evolua");
         }
@@ -267,7 +267,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto turno inicializado" + " | Evolua");
 
         if (turno != null) {
-            turno.setFkInfoConcluintes(idInfoConcluintes);
+            turno.setFk(idInfoConcluintes);
             concluintesTurnoRepository.inserir(turno);
             System.out.println(time.horaAtual() + " | INFO | outros " + turno + " salva" + " | Evolua");
         }
@@ -278,7 +278,7 @@ public class ImportacaoService {
         System.out.println(time.horaAtual() + " | INFO | Objeto rede inicializado" + " | Evolua");
 
         if (rede != null) {
-            rede.setFkInfoConcluintes(idInfoConcluintes);
+            rede.setFk(idInfoConcluintes);
             concluintesRedeRepository.inserir(rede);
             System.out.println(time.horaAtual() + " | INFO | rede " + rede + " salva" + " | Evolua");
         }
