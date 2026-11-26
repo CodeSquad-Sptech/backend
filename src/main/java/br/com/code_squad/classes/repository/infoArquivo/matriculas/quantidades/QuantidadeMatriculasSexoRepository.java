@@ -17,6 +17,6 @@ public class QuantidadeMatriculasSexoRepository {
                 (feminino, masculino, fkInfoMatriculas) VALUES (
                 """ + "? ,".repeat(2) + "?)";
         jdbcTemplate.update(sql, quantidadeMatriculasSexo.getFeminino(), quantidadeMatriculasSexo.getMasculino(),
-                quantidadeMatriculasSexo.getFkInfoMatriculas());
+                quantidadeMatriculasSexo.getFk());
     }
 }
