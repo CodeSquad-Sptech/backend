@@ -88,16 +88,9 @@ public class ImportacaoService {
             );
         }
 
-        System.out.println(time.horaAtual() + " | INFO | Processo de importação iniciou com a importação com argumentos validos" + " | Evolua");
+        System.out.println(time.horaAtual() + " | INFO | Processo de importação iniciado | Evolua");
 
-        // 1. Registra o arquivo e recupera o ID da importação.
-        Integer idImportacao = importacaoRepository.inserir(importacao);
-
-        System.out.println(time.horaAtual() + " | INFO | ID da importação: " + idImportacao + " | Evolua");
-
-        // 2. Processa cada curso e seus indicadores.
         for (CursoImportadoDTO cursoDTO : cursos) {
-            System.out.println(time.horaAtual() + " | INFO | Inicio do processo do curso '" + cursoDTO.getInfoCurso().getNomeCurso() + "'." + " | Evolua");
 
             if (cursoDTO == null || cursoDTO.getInfoCurso() == null) {
                 throw new IllegalArgumentException(
@@ -105,24 +98,32 @@ public class ImportacaoService {
                 );
             }
 
-            InfoCurso infoCurso = cursoDTO.getInfoCurso();
-
-            // Vincula o curso à importação atual.
-            infoCurso.setFkImportacao(idImportacao);
-
-            // Salva o curso e recupera seu ID.
-            Integer idCurso = infoCursoRepository.inserir(infoCurso);
-
-            // Salva matrículas e seus indicadores.
-            salvarMatriculas(cursoDTO, idCurso);
-
-            // Salva concluintes e seus indicadores.
-            salvarConcluintes(cursoDTO, idCurso);
-
-            System.out.println(time.horaAtual() + " | INFO | Curso '" + cursoDTO.getInfoCurso().getNomeCurso() + "' foi processado." + " | Evolua");
+            importacao.adicionarCurso(cursoDTO.getInfoCurso());
         }
 
-        System.out.println(time.horaAtual() + " | INFO | Fim do processo de importação com id " + idImportacao + " | Evolua");
+        Integer idImportacao = importacaoRepository.inserir(importacao);
+
+        System.out.println(time.horaAtual() + " | INFO | ID da importação: " + idImportacao + " | Evolua");
+
+        for (int i = 0; i < importacao.getCursos().size(); i++) {
+
+            InfoCurso infoCurso = importacao.getCursos().get(i);
+            CursoImportadoDTO cursoDTO = cursos.get(i);
+
+            System.out.println(time.horaAtual() + " | INFO | Iniciando processamento do curso: " + infoCurso.getNomeCurso() + " | Evolua");
+
+            infoCurso.setFkImportacao(idImportacao);
+
+            Integer idCurso = infoCursoRepository.inserir(infoCurso);
+
+            salvarMatriculas(cursoDTO, idCurso);
+
+            salvarConcluintes(cursoDTO, idCurso);
+
+            System.out.println(time.horaAtual() + " | INFO | Curso processado: " + infoCurso.getNomeCurso() + " | Evolua");
+        }
+
+        System.out.println(time.horaAtual() + " | INFO | Importação finalizada com ID: " + idImportacao + " | Evolua");
 
         return idImportacao;
     }
