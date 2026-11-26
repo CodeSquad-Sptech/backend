@@ -1,5 +1,6 @@
 package br.com.code_squad.classes.service;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
@@ -9,6 +10,7 @@ import java.lang.System;
 
 public class EmailService {
     public void enviarEmail(String assunto, String texto) {
+        Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
 
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -22,16 +24,16 @@ public class EmailService {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(
-                            System.getenv("EMAIL_USER"),
-                            System.getenv("EMAIL_PASS")
+                            dotenv.get("EMAIL_USER"),
+                            dotenv.get("EMAIL_PASS")
                     );
                 }
         });
 
         try {
             MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(System.getenv("EMAIL_USER")));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(System.getenv("EMAIL_DESTINO")));
+            message.setFrom(new InternetAddress(dotenv.get("EMAIL_USER")));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(dotenv.get("EMAIL_DESTINO")));
             message.setSubject(assunto);
             message.setText(texto);
 
