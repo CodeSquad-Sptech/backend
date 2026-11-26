@@ -9,6 +9,7 @@ import br.com.code_squad.classes.repository.infoArquivo.concluintes.quantidades.
 import br.com.code_squad.classes.repository.infoArquivo.matriculas.InfoMatriculaRepository;
 import br.com.code_squad.classes.repository.infoArquivo.matriculas.quantidades.*;
 import br.com.code_squad.classes.service.DatetimeService;
+import br.com.code_squad.classes.service.EmailService;
 import br.com.code_squad.classes.service.ImportacaoService;
 
 import java.nio.file.Path;
@@ -17,6 +18,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        EmailService email = new EmailService();
         DatetimeService time = new DatetimeService();
 
         Path arquivo = args.length > 0
@@ -78,6 +80,9 @@ public class Main {
                         cursos.size(),
                         idImportacao
                 );
+
+                email.enviarEmail("EVOLUA: Leitura do sistema", "Sistema leu os arquivos enviados. \s Nome: " + importacao.getNomeArquivo() + "\sData: " + time.horaAtual());
+
             } finally {
                 System.out.println(time.horaAtual() + "INFO:Fechando conexão");
                 conexao.getBasicDataSource().close();
