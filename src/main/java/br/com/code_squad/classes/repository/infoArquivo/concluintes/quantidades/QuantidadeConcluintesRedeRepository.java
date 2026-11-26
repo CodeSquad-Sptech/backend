@@ -17,6 +17,6 @@ public class QuantidadeConcluintesRedeRepository {
                 (redePublica, redePrivada, fkInfoConcluintes) VALUES (
                 """ + "? ,".repeat(2) + "?)";
         jdbcTemplate.update(sql, quantidadeConcluintesRede.getRedePublica(), quantidadeConcluintesRede.getRedePrivada(),
-                quantidadeConcluintesRede.getFkInfoConcluintes());
+                quantidadeConcluintesRede.getFk());
     }
 }

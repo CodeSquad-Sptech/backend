@@ -17,6 +17,6 @@ public class QuantidadeConcluintesTurnoRepository {
                 (diurno, noturno, fkInfoConcluintes) VALUES (
                 """ + "? ,".repeat(2) + "?)";
         jdbcTemplate.update(sql, quantidadeConcluintesTurno.getDiurno(), quantidadeConcluintesTurno.getNoturno(),
-                quantidadeConcluintesTurno.getFkInfoConcluintes());
+                quantidadeConcluintesTurno.getFk());
     }
 }

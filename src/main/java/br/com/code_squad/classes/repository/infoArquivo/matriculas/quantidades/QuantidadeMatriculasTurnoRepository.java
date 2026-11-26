@@ -17,6 +17,6 @@ public class QuantidadeMatriculasTurnoRepository {
                 (diurno, noturno, fkInfoMatriculas) VALUES (
                 """ + "? ,".repeat(2) + "?)";
         jdbcTemplate.update(sql, quantidadeMatriculasTurno.getDiurno(), quantidadeMatriculasTurno.getNoturno(),
-                quantidadeMatriculasTurno.getFkInfoMatriculas());
+                quantidadeMatriculasTurno.getFk());
     }
 }

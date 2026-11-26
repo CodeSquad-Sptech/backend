@@ -17,6 +17,6 @@ public class QuantidadeConcluintesSexoRepository {
                 (feminino, masculino, fkInfoConcluintes) VALUES (
                 """ + "? ,".repeat(2) + "?)";
         jdbcTemplate.update(sql, quantidadeConcluintesSexo.getFeminino(), quantidadeConcluintesSexo.getMasculino(),
-                quantidadeConcluintesSexo.getFkInfoConcluintes());
+                quantidadeConcluintesSexo.getFk());
     }
 }

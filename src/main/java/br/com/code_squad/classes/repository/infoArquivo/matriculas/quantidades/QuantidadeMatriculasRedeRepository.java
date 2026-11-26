@@ -17,6 +17,6 @@ public class QuantidadeMatriculasRedeRepository {
                 (redePublica, redePrivada, fkInfoMatriculas) VALUES (
                 """ + "? ,".repeat(2) + "?)";
         jdbcTemplate.update(sql, quantidadeMatriculasRede.getRedePublica(), quantidadeMatriculasRede.getRedePrivada(),
-                quantidadeMatriculasRede.getFkInfoMatriculas());
+                quantidadeMatriculasRede.getFk());
     }
 }

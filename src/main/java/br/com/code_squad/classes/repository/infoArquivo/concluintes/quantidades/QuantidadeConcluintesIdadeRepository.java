@@ -16,10 +16,10 @@ public class QuantidadeConcluintesIdadeRepository {
                 concluintes25a29, concluintes30a34, concluintes35a39, concluintes40a49, 
                 concluintes50a59, concluintes60Mais, fkInfoConcluintes) VALUES (
                 """ + "? ,".repeat(8) + "?)";
-        jdbcTemplate.update(sql, quantidadeConcluintesIdade.getConcluintes0a17(), quantidadeConcluintesIdade.getConcluintes18a24(),
-                quantidadeConcluintesIdade.getConcluintes25a29(), quantidadeConcluintesIdade.getConcluintes30a34(),
-                quantidadeConcluintesIdade.getConcluintes35a39(), quantidadeConcluintesIdade.getConcluintes40a49(),
-                quantidadeConcluintesIdade.getConcluintes50a59(), quantidadeConcluintesIdade.getConcluintes60Mais(),
-                quantidadeConcluintesIdade.getFkInfoConcluintes());
+        jdbcTemplate.update(sql, quantidadeConcluintesIdade.getI0a17(), quantidadeConcluintesIdade.getI18a24(),
+                quantidadeConcluintesIdade.getI25a29(), quantidadeConcluintesIdade.getI30a34(),
+                quantidadeConcluintesIdade.getI35a39(), quantidadeConcluintesIdade.getI40a49(),
+                quantidadeConcluintesIdade.getI50a59(), quantidadeConcluintesIdade.getI60Mais(),
+                quantidadeConcluintesIdade.getFk());
     }
 }
